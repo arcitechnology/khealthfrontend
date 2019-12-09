@@ -1,0 +1,191 @@
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h4 class="page-title">HOSPITAL REGISTRATION FORM</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/hospitals">Hospitals</a></li>
+              <li class="breadcrumb-item active">Hospital Registration Form</li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end page-title -->
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <div>
+                <div class="pt_signup">
+                  <div>
+                    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+                    <div class="row">
+                      <div class="col-lg-7">
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Hospital Name</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="hospital_name" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Hospital Address</label>
+                          <div class="col-sm-7">
+                            <textarea class="form-control" name="hospital_address" ngModel></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Hospital Locality</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" name="hospital_locality" ngModel>
+                          </div>
+                        </div>                        
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Phone Number1</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="hospital_phone1" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Phone Number2</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="hospital_phone2" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">PRO Name</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="pro_name" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">PRO Mobile Number</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="pro_mobile" ngModel>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="map_add">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30710983.209769644!2d64.45235976587381!3d20.01273993518969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1570932961246!5m2!1sen!2sin"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                        <div class="sub-title m-t-20">coordinates: 31.3475869, 87.234564</div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="row depart_check">
+                          <div class="col-sm-12">
+                            <h3>Departments</h3>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1"><img src="assets/images/de1.jpg">  Cardiology</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                <label class="custom-control-label" for="customCheck2"><img src="assets/images/de2.jpg"> Neurology</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                <label class="custom-control-label" for="customCheck3"><img src="assets/images/de3.jpg"> Orthopedic</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                <label class="custom-control-label" for="customCheck4"><img src="assets/images/de4.jpg">  Gynecology</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                <label class="custom-control-label" for="customCheck5"><img src="assets/images/de5.jpg"> Gastroenterology</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                <label class="custom-control-label" for="customCheck6"><img src="assets/images/de6.jpg"> Urology</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                <label class="custom-control-label" for="customCheck7"><img src="assets/images/de7.jpg">  Pediatric</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck8">
+                                <label class="custom-control-label" for="customCheck8"><img src="assets/images/de8.jpg"> General Physician</label>
+                              </div>
+                            </div>
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck9">
+                                <label class="custom-control-label" for="customCheck9"><img src="assets/images/de9.jpg"> General Surgeon</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="checkbox checkbox-primary">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck10">
+                                <label class="custom-control-label" for="customCheck10"><img src="assets/images/de10.jpg">  Physiotherapy</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row m-t-10">
+                      <div class="col-sm-12">
+                        <div class="checkbox checkbox-primary">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck11">
+                            <label class="custom-control-label" for="customCheck11"> Available Ambulance Service</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="text-center">
+                            <input type="hidden" name="hospital_status" ngModel="1">
+                            <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
+                            <button type="button" class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- content -->
+</div>

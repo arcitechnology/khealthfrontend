@@ -1,0 +1,75 @@
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h4 class="page-title">DOCTOR REGISTRATION FORM</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/doctors">Doctors</a></li>
+              <li class="breadcrumb-item active">Doctor Registration Form</li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end page-title -->
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <div>
+                <div class="pt_signup">
+                  <div>
+                    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+                    <div class="row">
+                      <div class="col-lg-7">
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Doctor Name</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="doctor_name" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Doctor Address</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="qualification" ngModel>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Mobile Number</label>
+                          <div class="col-sm-7">
+                            <input class="form-control" type="text" name="mobile" ngModel>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-7">
+                        <div class="form-group row">
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
+                            <button type="button" class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container-fluid -->
+    </div>
+  </div>
+</div>
+    <!-- content -->
