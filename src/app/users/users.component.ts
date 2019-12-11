@@ -14,7 +14,9 @@ export class UsersComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   constructor(private _userService:UsersService) {
-    this._userService.getUsers().subscribe((data) => { this.users = data; });
+    this._userService.getUsers().subscribe((data) => { 
+      console.log('data',data);
+      this.users = data; });
   }  
   ngOnInit() {    
   }

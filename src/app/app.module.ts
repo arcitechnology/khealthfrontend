@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor} from './interceptor/httpconfig.interceptor';
+
 import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
@@ -76,11 +80,15 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
     DataTablesModule
   ],
-  providers: [DoctorsService,HospitalsService,DepartmentsService,PatientsService,UsersService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    DoctorsService,HospitalsService,DepartmentsService,PatientsService,UsersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

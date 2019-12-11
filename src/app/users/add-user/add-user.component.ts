@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { Iuser } from '../../prototypes/usersprototype';
 import {Router} from '@angular/router';
+import Swal, { SweetAlertOptions } from 'sweetalert2';
+import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.service';
 
 @Component({
   selector: 'app-add-user',
@@ -12,7 +14,7 @@ import {Router} from '@angular/router';
 export class AddUserComponent implements OnInit {
 
   doctor:Iuser;
-  constructor(private _userService:UsersService, private router:Router) { 
+  constructor(private _userService:UsersService, private router:Router, public sweetAlertService: SweetAlertService,) { 
   }
 
 
@@ -23,6 +25,7 @@ export class AddUserComponent implements OnInit {
     console.log(user);
     let  response = this._userService.saveUser(user).subscribe(
       (data) => {
+        this.sweetAlertService.showAlert('success', 'User created successfully.', 'Done!');
         this.router.navigate(['/users']);
       },
       (error:any) => {
