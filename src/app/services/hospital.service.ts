@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Ihospital } from '../prototypes/hospitalprototype';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -13,7 +14,7 @@ export class HospitalsService {
   }
 
   getHospitals():Observable <Ihospital[]>{
-        return this._http.get('http://18.225.7.206:3000/hospitals').map((response:Response) => <Ihospital[]> response.json())
+        return this._http.get( environment.apiUrl + 'hospitals').map((response:Response) => <Ihospital[]> response.json())
         .catch(this.handleError);
     }
     
@@ -21,10 +22,16 @@ export class HospitalsService {
         return Observable.throw(error);
     }
 
+    getDepartments(){
+        return this._http.get(environment.apiUrl + "departments")
+               .map(this.extractData)
+               .catch(this.handleErrorObservable); 
+    }
+
     saveHospital(hospitalData:Ihospital):Observable<Ihospital>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post("http://18.225.7.206:3000/hospitals", hospitalData, options)
+        return this._http.post( environment.apiUrl + "hospitals", hospitalData, options)
                .map(this.extractData)
                .catch(this.handleErrorObservable);
     }

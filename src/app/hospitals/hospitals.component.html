@@ -28,7 +28,7 @@
                 <a routerLink="/hospitals/add-hospital" class="btn btn-success btn-sm">Add Hospital</a>
               </div>
               <div class="table-responsive">
-                <table class="table table-hover" datatable>
+                <table class="table table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
                   <thead>
                     <tr>
                       <th scope="col">Hospital Name</th>

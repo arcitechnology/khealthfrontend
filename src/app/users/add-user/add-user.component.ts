@@ -14,7 +14,7 @@ import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.serv
 export class AddUserComponent implements OnInit {
 
   user:Iuser;
-  constructor(private _userService:UsersService, private router:Router, public sweetAlertService: SweetAlertService,) { 
+  constructor(private _userService:UsersService, private router:Router, public sweetAlertService: SweetAlertService,) {
   }
 
   ngOnInit() {
