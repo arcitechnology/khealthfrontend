@@ -1,3 +1,77 @@
-<p>
-  login works!
-</p>
+<!-- Begin page -->
+         
+<div class="login_wrapper">
+    <div class="row h-100">
+        
+
+        <div class="col-lg-7 logininfo_right d-flex justify-content-center align-items-center">
+        <div class="login_right">
+            <div class="wel">Welcome </div>
+            <h2>Komodo Health</h2>
+            <p>Choose the doctor for required emergency medical 
+services and make an appointment through online or 
+toll free number.</p>
+        </div>
+    </div>
+
+    <div class="col-lg-5 pl-0">
+            <div class="login_form">
+         <div class="innerlg_form">
+             <h1>Komodo <strong>Health</strong></h1>
+         <h3>login form</h3>
+         <p>Please enter user details</p>
+         <form class="form-horizontal m-t-20" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group row">
+                        <div class="col-12">
+                                <label>Username</label>
+                            <input class="form-control" type="text" required="" placeholder="Username" formControlName="email"
+                            name="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required.</div>
+                                <div *ngIf="f.email.errors.email">Enter a valid email.</div>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-12">
+                                <label>Password</label>
+                            <input class="form-control" type="password" formControlName="user_password" id="password"
+                            placeholder="Password" name="user_password" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }">
+                          <div *ngIf="submitted && f.user_password.errors" class="invalid-feedback">
+                              <div *ngIf="f.user_password.errors.required">Password is required.</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                     
+
+                    <div class="form-group row text-center m-t-20">
+                        <div class="col-12">
+                            <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group login_link row m-t-30 m-b-0">
+                        <div class="col-sm-6">
+                           <a href="#">Register</a>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                             <a href="#" class=""><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                            
+                        </div>
+                    </div>
+                </form>
+         </div>
+         
+     </div>
+        </div>
+    </div>
+
+     
+     
+ </div>
+ 
+<!-- END wrapper -->

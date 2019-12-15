@@ -9,4 +9,6 @@ export interface Ihospital{
     pro_name:string;
     pro_mobile:string;
     hospital_status:string;
+    departments?:any;
+    ambulance_avail?: any;
 }

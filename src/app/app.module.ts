@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -52,6 +52,7 @@ const appRoutes:Routes = [
   { path:'patients/add-patient', component:AddPatientComponent },
   { path:'patients/edit-patient', component:EditPatientsComponent },
   { path:'dashboard', component:DashboardComponent },
+  { path:'login', component:LoginComponent },
   { path:'', component:DashboardComponent }
 ];
 
@@ -80,6 +81,7 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
