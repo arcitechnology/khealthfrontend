@@ -15,6 +15,7 @@ export class AddHospitalComponent implements OnInit {
   departments: any;
   selectedDepArray: Array<any> = [];
   ambulance_avail: boolean;
+  public locality: string;
   constructor(private _hospitalService: HospitalsService, private router: Router) { }
 
   ngOnInit() {
@@ -36,6 +37,10 @@ export class AddHospitalComponent implements OnInit {
       this.selectedDepArray.splice(index, 1);
     }
     // console.log(this.selectedDepArray);
+  }
+
+  getLatLan(){
+    alert(this.locality);
   }
 
   onSubmit(hospital: Ihospital) {
