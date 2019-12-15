@@ -14,15 +14,24 @@ export class UsersComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   constructor(private _userService:UsersService) {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 1
+    };
+    
+      
+  }  
+  ngOnInit() {  
     this._userService.getUsers().subscribe((data) => { 
       console.log('data',data);
-      this.users = data; });
-  }  
-  ngOnInit() {    
+      this.users = data;
+      this.dtTrigger.next();
+    
+    });  
   }
 
   ngAfterViewInit(){
-    this.dtTrigger.next();
+   
   }
 
   ngOnDestroy(){
