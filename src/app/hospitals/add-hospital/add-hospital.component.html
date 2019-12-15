@@ -85,16 +85,14 @@
                             <div class="col-sm-12">
                               <h3>Departments</h3>
                             </div>
-
-
-
+							
                             <div *ngFor="let department of departments" class="checkbox checkbox-primary col-md-3">
                               <div class="custom-control custom-checkbox">
                                 <input type="checkbox"
-                                  (change)="onChange(department.department_name, $event.target.checked)"
+                                  (change)="onChange(department.id, $event.target.checked)"
                                   class="custom-control-input" id="customCheck{{department.id}}">
                                 <label class="custom-control-label" for="customCheck{{department.id}}"><img
-                                    src="assets/images/de1.jpg"> {{department.department_name}}</label>
+                                    src="assets/images/{{department.icon_name}}"> {{department.department_name}}</label>
                               </div>
                             </div>
                           </div>

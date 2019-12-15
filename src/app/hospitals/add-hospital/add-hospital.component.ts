@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { HospitalsService } from '../../services/hospital.service';
 import { Ihospital } from '../../prototypes/hospitalprototype';
 import { Router } from '@angular/router';
+import Swal, { SweetAlertOptions } from 'sweetalert2';
+import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.service';
 
 @Component({
   selector: 'app-add-hospital',
@@ -15,7 +17,7 @@ export class AddHospitalComponent implements OnInit {
   departments: any;
   selectedDepArray: Array<any> = [];
   ambulance_avail: boolean;
-  constructor(private _hospitalService: HospitalsService, private router: Router) { }
+  constructor(private _hospitalService: HospitalsService, private router: Router, public sweetAlertService: SweetAlertService) { }
 
   ngOnInit() {
     this._hospitalService.getDepartments().subscribe(
@@ -35,18 +37,17 @@ export class AddHospitalComponent implements OnInit {
       let index = this.selectedDepArray.indexOf(email);
       this.selectedDepArray.splice(index, 1);
     }
-    // console.log(this.selectedDepArray);
+     console.log(this.selectedDepArray);
   }
 
   onSubmit(hospital: Ihospital) {
-    console.log(hospital);
     hospital.hospital_latitude = '81.254698';
     hospital.hospital_longitude = '32.145879';
     hospital.departments = this.selectedDepArray;
 
-
     let response = this._hospitalService.saveHospital(hospital).subscribe(
       (data) => {
+		this.sweetAlertService.showAlert('success', 'Hospital created successfully.', 'Done!');
         this.router.navigate(['/hospitals']);
       },
       (error: any) => {
