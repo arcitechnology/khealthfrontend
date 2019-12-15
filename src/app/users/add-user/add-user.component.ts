@@ -13,10 +13,9 @@ import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.serv
 })
 export class AddUserComponent implements OnInit {
 
-  doctor:Iuser;
+  user:Iuser;
   constructor(private _userService:UsersService, private router:Router, public sweetAlertService: SweetAlertService,) { 
   }
-
 
   ngOnInit() {
   }
@@ -29,7 +28,8 @@ export class AddUserComponent implements OnInit {
         this.router.navigate(['/users']);
       },
       (error:any) => {
-        console.log(error)
+		let msg = error.error[0].message.replace(/[\"]/gi, '');
+        this.sweetAlertService.showAlert('error', msg, 'Error!');
       }
     );
   }

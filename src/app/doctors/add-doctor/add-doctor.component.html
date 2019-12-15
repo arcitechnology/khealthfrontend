@@ -36,7 +36,7 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-sm-5 col-form-label">Doctor Address</label>
+                          <label class="col-sm-5 col-form-label">Qualification</label>
                           <div class="col-sm-7">
                             <input class="form-control" type="text" name="qualification" ngModel>
                           </div>
@@ -47,7 +47,33 @@
                             <input class="form-control" type="text" name="mobile" ngModel>
                           </div>
                         </div>
+						<div class="form-group row">
+                          <label class="col-sm-5 col-form-label">Active Status</label>
+                          <div class="col-sm-7">
+                            <select class="form-control" name="active_status" ngModel>
+                                <option value="">Select Status</option>
+                                <option value="1">Active</option>
+                                <option value="0">In Active</option>
+                            </select>
+                          </div>
+                        </div>
+						<div class="col-sm-12">
+							<div class="row depart_check">
+								<div class="col-sm-12">
+									<h3>Departments</h3>
+								</div>
+								<div class="col-md-12">
+									<div class="checkbox checkbox-primary" *ngFor="let department of departments">
+									  <div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" id="customCheck1">
+										<label class="custom-control-label" for="customCheck1"><img src="assets/images/{{department.icon_name}}">  {{department.department_name}}</label>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
                       </div>
+					  
                     </div>
                     <div class="row">
                       <div class="col-lg-7">

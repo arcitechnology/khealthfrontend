@@ -18,8 +18,9 @@ export class AddHospitalComponent implements OnInit {
   }
 
   onSubmit(hospital:Ihospital){
-    this.hospital.hospital_latitude = '81.254698';
-    this.hospital.hospital_longitude = '32.145879';
+    hospital.hospital_latitude = '81.254698';
+    hospital.hospital_longitude = '32.145879';
+	hospital.hospital_status = '1';
     console.log(hospital);
     let  response = this._hospitalService.saveHospital(hospital).subscribe(
       (data) => {
