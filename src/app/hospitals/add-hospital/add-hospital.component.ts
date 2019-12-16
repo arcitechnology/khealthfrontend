@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HospitalsService } from '../../services/hospital.service';
 import { Ihospital } from '../../prototypes/hospitalprototype';
@@ -6,20 +6,40 @@ import { Router } from '@angular/router';
 import Swal, { SweetAlertOptions } from 'sweetalert2';
 import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.service';
 
+import { ViewChild } from '@angular/core';
+
+
+
+var geocoder: any;
+var map: any;
+
+
 @Component({
   selector: 'app-add-hospital',
   templateUrl: './add-hospital.component.html',
   styleUrls: ['./add-hospital.component.css']
 })
-export class AddHospitalComponent implements OnInit {
+export class AddHospitalComponent implements OnInit, AfterViewInit {
+
+
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
   hospital: Ihospital;
   departments: any;
   selectedDepArray: Array<any> = [];
   ambulance_avail: boolean;
   public locality: string;
-  
-  constructor(private _hospitalService: HospitalsService, private router: Router, public sweetAlertService: SweetAlertService) { }
+  public selLat: string = "18.5793";
+  public selLong: string = "73.8143";
+  public mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=600x450&markers=" + this.selLat + "," + this.selLong + "";
+
+  constructor(private _hospitalService: HospitalsService, private router: Router, public sweetAlertService: SweetAlertService) {
+
+    // initialize() {
+
+    //  }
+  }
 
   ngOnInit() {
     this._hospitalService.getDepartments().subscribe(
@@ -30,6 +50,13 @@ export class AddHospitalComponent implements OnInit {
         console.log(error);
       }
     )
+
+
+
+  }
+
+  ngAfterViewInit() {
+    // this.initMap();
   }
 
   onChange(email: string, isChecked: boolean) {
@@ -39,21 +66,41 @@ export class AddHospitalComponent implements OnInit {
       let index = this.selectedDepArray.indexOf(email);
       this.selectedDepArray.splice(index, 1);
     }
-     console.log(this.selectedDepArray);
+    console.log(this.selectedDepArray);
   }
 
-  getLatLan(){
-    alert(this.locality);
+  getLatLan() {
+
+    this._hospitalService.getGeocode(this.locality).subscribe((response: any) => {
+      console.log('latlong', response[0]);
+      this.selLat = response[0].lat;
+      this.selLong = response[0].lon;
+      this.mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=600x450&markers=" + this.selLat + "," + this.selLong + "";
+      // this.initMap();
+    });
+  }
+
+
+  initMap() {
+    var mapProp = {
+      center: new google.maps.LatLng(18.5793, 73.8143),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+
   }
 
   onSubmit(hospital: Ihospital) {
-    hospital.hospital_latitude = '81.254698';
-    hospital.hospital_longitude = '32.145879';
-    hospital.departments = this.selectedDepArray;
-
-    let response = this._hospitalService.saveHospital(hospital).subscribe(
+    hospital.hospital_latitude = this.selLat;
+    hospital.hospital_longitude = this.selLong;
+    // hospital.departments = this.selectedDepArray;
+    // console.log(hospital);
+    const payload = { hospital, departments: this.selectedDepArray };
+    // console.log(payload);
+    let response = this._hospitalService.saveHospital(payload).subscribe(
       (data) => {
-		this.sweetAlertService.showAlert('success', 'Hospital created successfully.', 'Done!');
+        this.sweetAlertService.showAlert('success', 'Hospital created successfully.', 'Done!');
         this.router.navigate(['/hospitals']);
       },
       (error: any) => {
