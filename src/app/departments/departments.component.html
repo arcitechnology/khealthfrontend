@@ -28,24 +28,20 @@
                 <a routerLink="/departments/add-department" class="btn btn-success btn-sm">Add Department</a>
               </div>
               <div class="table-responsive">
-                <table class="table table-hover" datatable>
+                <table class="table table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                   <thead>
                     <tr>
                       <th>S.No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Description</th>
-                      <th scope="col">Icon</th>
-                      <th scope="col">Status</th>
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let department of departments">
-                      <td>1</td>                      
+                    <tr *ngFor="let department of departments; let i = index">
+                      <td>{{i+1}}</td>                      
                       <td>{{department.department_name}}</td>
                       <td>{{department.description}}</td>
-                      <td>{{department.icon_name}}</td>
-                      <td><span class="badge badge-success">Active</span></td>
                       <td>
                         <div>
                           <a href="#" class="btn btn-primary btn-sm">Edit</a>
