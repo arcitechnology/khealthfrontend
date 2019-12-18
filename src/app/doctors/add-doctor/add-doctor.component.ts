@@ -17,6 +17,7 @@ export class AddDoctorComponent implements OnInit {
 
   doctor:Idoctor;
   departments:Idepartment[];
+  selectedDepArray: Array<any> = [];
   constructor(private _doctorService:DoctorsService, private router:Router, public sweetAlertService: SweetAlertService, private _departments:DepartmentsService) { 
 	this._departments.getDepartments().subscribe((data) => { this.departments = data; });
   }
@@ -24,15 +25,25 @@ export class AddDoctorComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(doctor:Idoctor){
-    let  response = this._doctorService.saveDoctor(doctor).subscribe(
-      (data) => {
-		this.sweetAlertService.showAlert('success', 'Doctor created successfully.', 'Done!');
-        this.router.navigate(['/doctors']);
-      },
-      (error:any) => {
-        console.log(error)
-      }
-    );
+		const payload = { doctor, departments: this.selectedDepArray };
+		console.log(payload);
+		let  response = this._doctorService.saveDoctor(payload).subscribe(
+		  (data) => {
+			this.sweetAlertService.showAlert('success', 'Doctor registered successfully.', 'Done!');
+			this.router.navigate(['/doctors']);
+		  },
+		  (error:any) => {
+			console.log(error)
+		  }
+		);
+  }
+  onChange(dep: string, isChecked: boolean) {
+    if (isChecked) {
+      this.selectedDepArray.push(dep);
+    } else {
+      let index = this.selectedDepArray.indexOf(dep);
+      this.selectedDepArray.splice(index, 1);
+    }
   }
 
 }
