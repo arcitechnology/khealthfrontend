@@ -1,7 +1,7 @@
 <!-- Begin page -->
-<div id="wrapper">
+
   <!-- Top Bar Start -->
-  <div class="topbar">
+  <div class="topbar" >
     <!-- LOGO -->
     <div class="topbar-left">
       <a routerLink="/" class="logo">
@@ -10,11 +10,11 @@
       </a>
     </div>
 
-    <nav class="navbar-custom">
+    <nav class="navbar-custom" >
       <ul class="navbar-right list-inline float-right mb-0">
         <li class="dropdown notification-list list-inline-item">
           <div class="dropdown notification-list nav-pro-img">
-            <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" routerLink="javascript:void(0)" role="button" aria-haspopup="false"
+            <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="false"
               aria-expanded="false">
               <img src="assets/images/users/user-4.png" alt="user" class="rounded-circle">
             </a>
@@ -25,7 +25,7 @@
               <a class="dropdown-item d-block" routerLink="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
               <a class="dropdown-item" routerLink="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item text-danger" routerLink="/logout"><i class="mdi mdi-power text-danger"></i> Logout</a>
+              <a class="dropdown-item text-danger" href="javascript:void(0)" (click)="logout()"><i class="mdi mdi-power text-danger"></i> Logout</a>
             </div>
           </div>
         </li>
@@ -49,7 +49,7 @@
   <!-- Top Bar End -->
 
   <!-- ========== Left Sidebar Start ========== -->
-  <div class="left side-menu">
+  <div class="left side-menu" >
     <div class="slimscroll-menu" id="remove-scroll">
       <!--- Sidemenu -->
       <div id="sidebar-menu">
@@ -92,8 +92,5 @@
     <!-- Sidebar -left -->
   </div>
   <!-- Left Sidebar End -->
-  <!-- right side content -->        
-  <router-outlet></router-outlet>
-  <!-- right side content end-->
-  <footer class="footer"> © 2019 KOMODO HEALTH. </footer>
-</div>
+
+  
