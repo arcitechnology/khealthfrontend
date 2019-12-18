@@ -20,7 +20,6 @@ export class PatientsComponent implements OnInit, OnDestroy {
       pageLength: 10
     };
   }
-
   ngOnInit() {
 	this._patientsService.getPatients().subscribe((data) => {
 		this.patients = data;
@@ -31,5 +30,4 @@ export class PatientsComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
 	this.dtTrigger.unsubscribe();
   }
-
 }
