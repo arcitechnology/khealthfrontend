@@ -12,28 +12,22 @@ import { Subject } from 'rxjs';
 export class HospitalsComponent implements OnInit, OnDestroy {
 
   dtOptions: DataTables.Settings = {};
-
-
-  hospitals: Ihospital[];
-
   dtTrigger: Subject<any> = new Subject();
-
-
+  
+  hospitals: Ihospital[];
 
   constructor(private _hospitalService: HospitalsService) {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 4
+      pageLength: 10
     };
   }
 
   ngOnInit() {
-    this._hospitalService.getHospitals().subscribe((data) => { 
-      
+    this._hospitalService.getHospitals().subscribe((data) => {      
       this.hospitals = data;
       this.dtTrigger.next();
-    });
-   
+    });   
   }
 
   ngOnDestroy(){
