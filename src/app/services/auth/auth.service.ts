@@ -16,7 +16,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     const data = { email: email, user_password: password };
-    return this.http.post(environment.apiUrl + "login", data).pipe(map((user: any) => {
+    return this.http.post(environment.apiUrl + "auth", data).pipe(map((user: any) => {
       // login successful if there's a jwt token in the response
       if (user && user.token) {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -33,6 +33,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
+    
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return (currentUser && currentUser.token);
   }

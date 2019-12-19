@@ -1,1 +1,5 @@
-<app-menubar></app-menubar>
+<div id="wrapper">
+<app-menubar *ngIf="authService.isAuthenticated()"></app-menubar>
+<router-outlet></router-outlet>
+<footer *ngIf="authService.isAuthenticated()" class="footer"> © 2019 KOMODO HEALTH. </footer>
+</div>
