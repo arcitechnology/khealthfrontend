@@ -35,26 +35,8 @@ import { PatientsService } from './services/patients.service';
 import { DepartmentsService } from './services/departments.service';
 import { UsersService } from './services/users.service';
 
-const appRoutes:Routes = [
-  { path:'users', component:UsersComponent },
-  { path:'users/add-user', component:AddUserComponent },
-  { path:'users/edit-user', component:EditUserComponent },
-  { path:'doctors', component:DoctorsComponent },
-  { path:'doctors/add-doctor', component:AddDoctorComponent },
-  { path:'doctors/edit-doctor', component:EditDoctorComponent },
-  { path:'departments', component:DepartmentsComponent },
-  { path:'departments/add-department', component:AddDepartmentComponent },
-  { path:'departments/edit-department', component:EditDepartmentComponent },
-  { path:'hospitals', component:HospitalsComponent },
-  { path:'hospitals/add-hospital', component:AddHospitalComponent },
-  { path:'hospitals/edit-hospital', component:EditHospitalComponent },
-  { path:'patients', component:PatientsComponent },
-  { path:'patients/add-patient', component:AddPatientComponent },
-  { path:'patients/edit-patient', component:EditPatientsComponent },
-  { path:'dashboard', component:DashboardComponent },
-  { path:'login', component:LoginComponent },
-  { path:'', component:DashboardComponent }
-];
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -83,11 +65,13 @@ const appRoutes:Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     HttpModule,
-    DataTablesModule
+    DataTablesModule,   
+
   ],
   providers: [
+    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     DoctorsService,HospitalsService,DepartmentsService,PatientsService,UsersService
   ],
