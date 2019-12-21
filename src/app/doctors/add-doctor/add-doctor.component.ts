@@ -16,7 +16,7 @@ import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.serv
 export class AddDoctorComponent implements OnInit {
 
   doctor:Idoctor;
-  departments:Idepartment[];
+  departments:any;
   selectedDepArray: Array<any> = [];
   constructor(private _doctorService:DoctorsService, private router:Router, public sweetAlertService: SweetAlertService, private _departments:DepartmentsService) { 
 	this._departments.getDepartments().subscribe((data) => { this.departments = data; });

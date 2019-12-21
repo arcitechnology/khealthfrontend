@@ -37,6 +37,8 @@ import { UsersService } from './services/users.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth.guard';
+import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { AuthGuard } from './guards/auth.guard';
     DashboardComponent,
     AddPatientComponent,
     EditPatientsComponent,
-    LoginComponent
+    LoginComponent,
+    DoctorsAvailabilityComponent,
+    DoctorsTimetableComponent
   ],
   imports: [
     BrowserModule,

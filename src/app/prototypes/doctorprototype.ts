@@ -5,4 +5,5 @@ export interface Idoctor {
     mobile:string;
     phone:string;
     active_status:string;
+	departments?:any;
 };
