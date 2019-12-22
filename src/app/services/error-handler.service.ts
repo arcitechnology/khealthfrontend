@@ -19,7 +19,7 @@ export class ErrorHandlerService {
         return { type: 'error', status: status, msg: AppConstants.Messages.Error404 };
         break;
       case 400:
-        const errors = error.error.error;
+        const errors = error.error.message;
         let errMsg = '';
         if (Array.isArray(errors)) {
           errMsg = errors.join('<br>');
