@@ -5,13 +5,13 @@
       <div class="page-title-box">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h4 class="page-title">HOSPITAL REGISTRATION FORM</h4>
+            <h4 class="page-title">{{formTitle}}</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item"><a routerLink="/hospitals">Hospitals</a></li>
-              <li class="breadcrumb-item active">Hospital Registration Form</li>
+              <li class="breadcrumb-item active">{{formTitle | titlecase}}</li>
             </ol>
           </div>
         </div>
@@ -26,49 +26,89 @@
               <div>
                 <div class="pt_signup">
                   <div>
-                    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+                    <form [formGroup]="hospitalForm" (ngSubmit)="onSubmit()">
                       <div class="row">
                         <div class="col-lg-7">
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Hospital Name</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="hospital_name" ngModel>
+                              <input class="form-control" type="text" formControlName="hospital_name" name="hospital_name" 
+                              [ngClass]="{ 'is-invalid': submitted && f.hospital_name.errors }">
+                              <div *ngIf="submitted && f.hospital_name.errors" class="invalid-feedback">
+                                <div *ngIf="f.hospital_name.errors.required">Hospital Name is required.</div>
+                                
+                              </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Hospital Address</label>
                             <div class="col-sm-7">
-                              <textarea class="form-control" name="hospital_address" ngModel></textarea>
+                              <textarea class="form-control" formControlName="hospital_address" name="hospital_address"
+                              [ngClass]="{ 'is-invalid': submitted && f.hospital_address.errors }"
+                              ></textarea>
+                              <div *ngIf="submitted && f.hospital_address.errors" class="invalid-feedback">
+                                <div *ngIf="f.hospital_address.errors.required">Hospital Address is required.</div>
+                                
+                              </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Hospital Locality</label>
                             <div class="col-sm-7">
-                              <input class="form-control" (blur)="getLatLan()" name="hospital_locality" [(ngModel)]="locality">
-                            </div>
+                              <input class="form-control" (blur)="getLatLan()" formControlName="hospital_locality"
+                               name="hospital_locality" [ngClass]="{ 'is-invalid': submitted && f.hospital_locality.errors }">
+                               <div *ngIf="submitted && f.hospital_locality.errors" class="invalid-feedback">
+                                <div *ngIf="f.hospital_locality.errors.required">Hospital Locality is required.</div>
+                                
+                              </div>
+                              </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Phone Number1</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="hospital_phone1" ngModel>
-                            </div>
+                              <input class="form-control" type="text" formControlName="hospital_phone1"
+                               name="hospital_phone1" [ngClass]="{ 'is-invalid': submitted && f.hospital_phone1.errors }" >
+                               <div *ngIf="submitted && f.hospital_phone1.errors" class="invalid-feedback">
+                                <div *ngIf="f.hospital_phone1.errors.required">Hospital Phone number 1 is required.</div>
+                                <div *ngIf="f.hospital_phone1.errors.maxlength">Hospital Phone should be 10 numbers.</div>
+                                <div *ngIf="f.hospital_phone1.errors.pattern">Hospital Phone should be 10 numbers.</div>
+                              </div>
+                                                              
+
+                              </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Phone Number2</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="hospital_phone2" ngModel>
+                              <input class="form-control" type="text" formControlName="hospital_phone2"  name="hospital_phone2" [ngClass]="{ 'is-invalid': submitted && f.hospital_phone2.errors }" >
+                              <div *ngIf="submitted && f.hospital_phone2.errors" class="invalid-feedback">
+                                  <div *ngIf="f.hospital_phone2.errors.required">Hospital Phone number 2 is required.</div>
+                                  <div *ngIf="f.hospital_phone2.errors.maxlength">Hospital Phone number 2 should be 10 numbers.</div>
+                                  <div *ngIf="f.hospital_phone2.errors.pattern">Hospital Phone number2 should be 10 numbers.</div>
+                                </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">PRO Name</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="pro_name" ngModel>
+                              <input class="form-control" type="text" formControlName="pro_name" name="pro_name"
+                              [ngClass]="{ 'is-invalid': submitted && f.pro_name.errors }" >
+                              <div *ngIf="submitted && f.pro_name.errors" class="invalid-feedback">
+                                  <div *ngIf="f.pro_name.errors.required">Pro Name is required.</div>
+                   
+                                </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">PRO Mobile Number</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="pro_mobile" ngModel>
+                              <input class="form-control" type="text" formControlName="pro_mobile" name="pro_mobile" 
+                              [ngClass]="{ 'is-invalid': submitted && f.pro_mobile.errors }" >
+                              <div *ngIf="submitted && f.pro_mobile.errors" class="invalid-feedback">
+                                  <div *ngIf="f.pro_mobile.errors.required">Hospital Pro mobile number is required.</div>
+                                  <div *ngIf="f.pro_mobile.errors.maxlength">Hospital Pro mobile number should be 10 numbers.</div>
+                                  <div *ngIf="f.pro_mobile.errors.pattern">Hospital Pro mobile  number should be 10 numbers.</div>
+                                </div>
                             </div>
                           </div>
                         </div>
@@ -81,6 +121,9 @@
                               src="https://maps.google.com/?q=-37.866963,144.980615"
                               width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>          
                           </div> -->
+                          
+                          <!-- <div id='map'></div> -->
+
                           <img [src]='mapURL'>
 
                           <div class="sub-title m-t-20">coordinates: {{selLat}}, {{selLong}}</div>
@@ -91,23 +134,23 @@
                               <h3>Departments</h3>
                             </div>
 							
-                            <div *ngFor="let department of departments" class="checkbox checkbox-primary col-md-3">
+                            <div *ngFor="let department of departments; let i = index;" class="checkbox checkbox-primary col-md-3">
                               <div class="custom-control custom-checkbox">
                                 <input type="checkbox"
-                                  (change)="onChange(department.id, $event.target.checked)"
-                                  class="custom-control-input" id="customCheck{{department.id}}">
+                                  (change)="departmentChange(i, $event.target.checked)"
+                                  class="custom-control-input" [checked]="department.isChecked" id="customCheck{{department.id}}">
                                 <label class="custom-control-label" for="customCheck{{department.id}}"><img
                                     src="assets/images/{{department.icon_name}}"> {{department.department_name}}</label>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>                      
+                      </div>
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="form-group">
                             <div class="text-center">
-                              <input type="hidden" name="hospital_status" ngModel="1">
+                              <input type="hidden" name="hospital_status">
                               <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
                               <button type="button"
                                 class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>

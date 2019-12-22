@@ -10,4 +10,5 @@ export interface Ihospital{
     pro_mobile:string;
     hospital_status:string;
     departments?:any;
+    id?: number | string;
 }

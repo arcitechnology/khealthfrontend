@@ -29,7 +29,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         if (currentUser && currentUser.token) {
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Bearer ${currentUser.token}`
+                    'x-auth-token': `Bearer ${currentUser.token}`
                 }
             });
         }

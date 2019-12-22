@@ -6,45 +6,70 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HospitalsService {
-  _hospital:Ihospital[];
-  constructor(private _http:Http) {       
-  }
-
-  getHospitals():Observable <Ihospital[]>{
-        return this._http.get( environment.apiUrl + 'hospitals').map((response:Response) => <Ihospital[]> response.json())
-        .catch(this.handleError);
+    _hospital: Ihospital[];
+    constructor(private _http: Http, private http: HttpClient) {
     }
-    
-    handleError(error:Response){
+
+    getHospitals(): Observable<Ihospital[]> {
+        return this.http.get(environment.apiUrl + 'hospitals').pipe(map((hospitals: Ihospital[]) => {
+            return hospitals;
+        }));
+
+    }
+
+    getHospitalById(id: any): Observable<Ihospital> {
+        return this.http.get(environment.apiUrl + 'hospitals/' + id).pipe(map((hospital: Ihospital) => {
+            return hospital;
+        }));
+    }
+
+
+    handleError(error: Response) {
         return Observable.throw(error);
     }
 
-    getDepartments(){
+    getDepartments() {
         return this._http.get(environment.apiUrl + "departments")
-               .map(this.extractData)
-               .catch(this.handleErrorObservable); 
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+
+
+
     }
 
-    saveHospital(hospitalData:any):Observable<Ihospital>{
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this._http.post( environment.apiUrl + "hospitals", hospitalData, options)
-               .map(this.extractData)
-               .catch(this.handleErrorObservable);
+    saveHospital(hospitalData: any): Observable<Ihospital> {
+        return this.http.post(environment.apiUrl + "hospitals", hospitalData).pipe(map((hosp: Ihospital) => {
+            return hosp;
+        }));
     }
 
     getGeocode(locality){
 		return this._http.get( "https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q="+locality+"&format=json").map(this.extractData).catch(this.handleErrorObservable);;
      }
+	 
+    updateHospital(hospitalData: any, id): Observable<Ihospital> {
+        return this.http.put(environment.apiUrl + "hospitals/" + id, hospitalData).pipe(map((hosp: Ihospital) => {
+            return hosp;
+        }));
+
+
+    }
+	
+    getGeocode(locality) {
+        return this._http.get("https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q=" + locality + "&format=json").map(this.extractData)
+            .catch(this.handleErrorObservable);;
+    }
 
     extractData(res: Response) {
         let body = res.json();
         return body || {};
     }
-    handleErrorObservable (error: Response | any) {
+    handleErrorObservable(error: Response | any) {
         console.error(error.message || error);
         return Observable.throw(error.message || error);
     }
