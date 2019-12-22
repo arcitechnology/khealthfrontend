@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DepartmentsService } from '../services/departments.service';
 import { Idepartment } from '../prototypes/departmentprototype';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-departments',
@@ -8,14 +9,27 @@ import { Idepartment } from '../prototypes/departmentprototype';
   styleUrls: ['./departments.component.css'],
   providers:[DepartmentsService]
 })
-export class DepartmentsComponent implements OnInit {
+export class DepartmentsComponent implements OnInit, OnDestroy {
 
   departments:Idepartment[];
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
   constructor(private  _departmentService:DepartmentsService) { 
-    this._departmentService.getDepartments().subscribe((data) => { this.departments = data; });
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
   }
 
   ngOnInit() {
+	this._departmentService.getDepartments().subscribe((data) => { 
+		this.departments = data;
+		this.dtTrigger.next();
+	});
+  }
+  
+  ngOnDestroy(){
+	this.dtTrigger.unsubscribe();
   }
 
 }

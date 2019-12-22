@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { Iuser } from '../prototypes/usersprototype';
 import { Subject } from 'rxjs';
@@ -16,26 +16,16 @@ export class UsersComponent implements OnInit, OnDestroy {
   constructor(private _userService:UsersService) {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 1
+      pageLength: 10
     };
-    
-      
-  }  
+  }
   ngOnInit() {  
-    this._userService.getUsers().subscribe((data) => { 
-      console.log('data',data);
+    this._userService.getUsers().subscribe((data) => {
       this.users = data;
-      this.dtTrigger.next();
-    
-    });  
-  }
-
-  ngAfterViewInit(){
-   
-  }
-
+	  this.dtTrigger.next();    
+    });
+  }  
   ngOnDestroy(){
     this.dtTrigger.unsubscribe();
   }
-
 }

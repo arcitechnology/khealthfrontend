@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Ipatient } from '../prototypes/patientprototype';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PatientsService {
-
-  constructor(private _http:Http) { }
+  _patient:Ipatient[];
+  constructor(private _http:Http) { }	
 
   getPatients():Observable <Ipatient[]>{
         return this._http.get('http://localhost:3000/patients').map((response:Response) => <Ipatient[]> response.json())
@@ -20,5 +19,16 @@ export class PatientsService {
     
     handleError(error:Response){
         return Observable.throw(error);
+    }
+	
+	savePatient(patientData:any):Observable<Ipatient>{
+		console.log(patientData);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.post( environment.apiUrl + "patients", patientData, options).map(this.extractData).catch(this.handleError);
+    }
+	extractData(res: Response) {
+        let body = res.json();
+        return body || {};
     }
 }

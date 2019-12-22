@@ -18,6 +18,8 @@ import { AddPatientComponent } from './patients/add-patient/add-patient.componen
 import { EditPatientsComponent } from './patients/edit-patients/edit-patients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
 
 
 
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'patients', component: PatientsComponent, canActivate: [AuthGuard] },
   { path: 'patients/add-patient', component: AddPatientComponent, canActivate: [AuthGuard] },
   { path: 'patients/edit-patient', component: EditPatientsComponent, canActivate: [AuthGuard] },
+  { path: 'doctors-availability', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
+  { path: 'doctors-timetable', component: DoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] }
