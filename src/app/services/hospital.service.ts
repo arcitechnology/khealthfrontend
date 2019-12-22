@@ -9,43 +9,57 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class HospitalsService {
-  _hospital:Ihospital[];
-  constructor(private _http:Http) {       
-  }
-
-  getHospitals():Observable <Ihospital[]>{
-        return this._http.get( environment.apiUrl + 'hospitals').map((response:Response) => <Ihospital[]> response.json())
-        .catch(this.handleError);
+    _hospital: Ihospital[];
+    constructor(private _http: Http) {
     }
-    
-    handleError(error:Response){
+
+    getHospitals(): Observable<Ihospital[]> {
+        return this._http.get(environment.apiUrl + 'hospitals').map((response: Response) => <Ihospital[]>response.json())
+            .catch(this.handleError);
+    }
+
+    getHospitalById(id: any): Observable<Ihospital> {
+        return this._http.get(environment.apiUrl + 'hospitals/' + id).map((response: Response) => <Ihospital>response.json())
+            .catch(this.handleError);
+    }
+
+
+    handleError(error: Response) {
         return Observable.throw(error);
     }
 
-    getDepartments(){
+    getDepartments() {
         return this._http.get(environment.apiUrl + "departments")
-               .map(this.extractData)
-               .catch(this.handleErrorObservable); 
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
     }
 
-    saveHospital(hospitalData:any):Observable<Ihospital>{
+    saveHospital(hospitalData: any): Observable<Ihospital> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post( environment.apiUrl + "hospitals", hospitalData, options)
-               .map(this.extractData)
-               .catch(this.handleErrorObservable);
+        return this._http.post(environment.apiUrl + "hospitals", hospitalData, options)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
     }
 
-    getGeocode(locality){
-    return this._http.get( "https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q="+locality+"&format=json").map(this.extractData)
-    .catch(this.handleErrorObservable);;
-     }
+    updateHospital(hospitalData: any, id): Observable<Ihospital> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.put(environment.apiUrl + "hospitals/" + id, hospitalData, options)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+    }
+
+    getGeocode(locality) {
+        return this._http.get("https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q=" + locality + "&format=json").map(this.extractData)
+            .catch(this.handleErrorObservable);;
+    }
 
     extractData(res: Response) {
         let body = res.json();
         return body || {};
     }
-    handleErrorObservable (error: Response | any) {
+    handleErrorObservable(error: Response | any) {
         console.error(error.message || error);
         return Observable.throw(error.message || error);
     }

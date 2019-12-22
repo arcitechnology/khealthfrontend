@@ -26,6 +26,7 @@
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
     "jquery": "^3.4.1",
+    "leaflet": "^1.5.1",
     "ng2-completer": "^3.0.3",
     "popper.js": "^1.16.0",
     "rxjs": "6.2.1",
