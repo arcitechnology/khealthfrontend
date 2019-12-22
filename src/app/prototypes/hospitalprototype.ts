@@ -11,4 +11,5 @@ export interface Ihospital{
     hospital_status:string;
     departments?:any;
     ambulance_avail?: any;
+    id?: number | string;
 }
