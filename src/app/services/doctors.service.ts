@@ -21,7 +21,7 @@ export class DoctorsService {
         return Observable.throw(error);
     }
 
-    saveDoctor(doctorData:Idoctor):Observable<Idoctor>{
+    saveDoctor(doctorData:any):Observable<Idoctor>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post("http://localhost:3000/doctors", doctorData, options)

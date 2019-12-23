@@ -27,7 +27,7 @@ export class AddDoctorComponent implements OnInit {
   onSubmit(doctor:Idoctor){
 		const payload = { doctor, departments: this.selectedDepArray };
 		console.log(payload);
-		let  response = this._doctorService.saveDoctor(payload).subscribe(
+		this._doctorService.saveDoctor(payload).subscribe(
 		  (data) => {
 			this.sweetAlertService.showAlert('success', 'Doctor registered successfully.', 'Done!');
 			this.router.navigate(['/doctors']);
