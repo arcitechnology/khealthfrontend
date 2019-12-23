@@ -22,6 +22,9 @@
 					<div class="card m-b-30">
 						<div class="card-body">
 							<div class="slt_hps">
+								<div class=" text-center">
+									<h5 class="mt-0 m-b-30">Departwise Doctor Availability Hospital Name </h5>
+								</div>
 								<div class="form-group row m-b-30">
 									<label class="col-sm-4 col-form-label">Select Hospital List</label>
 									<div class="col-sm-8">
@@ -32,175 +35,50 @@
 										</select>
 									</div>
 								</div>
-							</div>
-							<div class="doc_avail">
-								<div class=" text-center">
-									<h5 class="mt-0 m-b-30">Departwise Doctor Availability Hospital Name </h5>
-								</div>
-								<div class="dep_doc">
-									<h3 class="mt-0 header-title mb-4">cardiology</h3>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 1</h6>
-										</div>
-										<div class="col-sm-3"><input class="form-control" type="text"></div>
-										<div class="col-sm-3"><input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-
-										</div>
-									</div>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 1</h6>
-										</div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-										</div>
-									</div>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 1</h6>
-										</div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="dep_doc">
-									<h3 class="mt-0 header-title mb-4">General Medicine</h3>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 1</h6>
-										</div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-										</div>
-									</div>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 2</h6>
-										</div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-										</div>
-									</div>
-									<div class="row m-b-20">
-										<div class="col-sm-3">
-											<h6>Slot 3</h6>
-										</div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3"> <input class="form-control" type="text"></div>
-										<div class="col-sm-3">
-											<div class="onoff">
-												<span class="sl_opt">No</span>
-												<label class="switch">
-													<input type="checkbox">
-													<span class="slider round"></span>
-												</label>
-												<span class="sl_opt">Yes</span>
-											</div>
-										</div>
+								<div class="form-group row m-b-30">
+									<label class="col-sm-4 col-form-label">Select Doctor</label>
+									<div class="col-sm-8">
+										<select class="form-control">
+											<option>Select Doctor</option>
+											<option>Large select</option>
+											<option>Small select</option>
+										</select>
 									</div>
 								</div>
 							</div>
-							<div class="dep_doc">
-								<h3 class="mt-0 header-title mb-4">Orthopedic</h3>
-								<div class="row m-b-20">
-									<div class="col-sm-3">
-										<h6>Slot 1</h6>
-									</div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3">
-										<div class="onoff">
-											<span class="sl_opt">No</span>
-											<label class="switch">
-												<input type="checkbox">
-												<span class="slider round"></span>
-											</label>
-											<span class="sl_opt">Yes</span>
+							<div class="doc_avail">								
+								<div class="dep_doc" *ngFor="let week of weeks">
+									<h3 class="mt-0 header-title mb-4">{{week.week_name}}</h3>
+									<div class="row m-b-20">
+										<!--<div class="col-sm-3">
+											<h6>Slot 1</h6>
+										</div>-->
+										<div class="col-sm-3"><input class="form-control" type="text" placeholder="04:30"></div>
+										<div class="col-sm-3"><input class="form-control" type="text" placeholder="14:00"></div>
+										<div class="col-sm-3">
+											<div class="onoff">
+												<span class="sl_opt">No</span>
+												<label class="switch">
+													<input type="checkbox">
+													<span class="slider round"></span>
+												</label>
+												<span class="sl_opt">Yes</span>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="row m-b-20">
-									<div class="col-sm-3">
-										<h6>Slot 2</h6>
-									</div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3">
-										<div class="onoff">
-											<span class="sl_opt">No</span>
-											<label class="switch">
-												<input type="checkbox">
-												<span class="slider round"></span>
-											</label>
-											<span class="sl_opt">Yes</span>
-										</div>
-									</div>
-								</div>
-								<div class="row m-b-20">
-									<div class="col-sm-3">
-										<h6>Slot 3</h6>
-									</div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3"> <input class="form-control" type="text"></div>
-									<div class="col-sm-3">
-										<div class="onoff">
-											<span class="sl_opt">No</span>
-											<label class="switch">
-												<input type="checkbox">
-												<span class="slider round"></span>
-											</label>
-											<span class="sl_opt">Yes</span>
-										</div>
-									</div>
-								</div>
+								</div>								
 							</div>
+							<div class="row">
+							<div class="col-sm-12">
+							  <div class="form-group">
+								<div class="text-center">
+								  <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
+								  <button type="button"
+									class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>
+								</div>
+							  </div>
+							</div>
+                      </div>							
 						</div>
 					</div>
 				</div>

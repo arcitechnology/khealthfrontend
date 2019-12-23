@@ -45,12 +45,12 @@
                       <td>{{i+1}}</td>                      
                       <td>{{user.user_name}}</td>
                       <td>{{user.email}}</td>
-                      <td></td>
-                      <td>{{user.user_role_id}}</td>
+                      <td>{{user.mobile}}</td>
+                      <td>{{user.role_name}}</td>
                       <td><span class="badge badge-success">{{user.status?'Active':'Inactive'}}</span></td>
                       <td>
                         <div>
-                          <a routerLink="#" class="btn btn-primary btn-sm">Edit</a>
+                          <a href="#" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a routerLink="#" class="btn btn-primary btn-sm">Edit</a>
                         </div>
                       </td>
                     </tr>

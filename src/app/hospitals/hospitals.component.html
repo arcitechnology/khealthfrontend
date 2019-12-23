@@ -31,6 +31,7 @@
                 <table class="table table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
                   <thead>
                     <tr>
+                      <th scope="col">#</th>
                       <th scope="col">Hospital Name</th>
                       <th scope="col">Address</th>
                       <th scope="col">Phone</th>
@@ -41,16 +42,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let hospital of hospitals">
+                    <tr *ngFor="let hospital of hospitals;let i = index">
+                      <td>{{i+1}}</td>                      
                       <td>{{hospital.hospital_name}}</td>                      
                       <td>{{hospital.hospital_address}}</td>
-                      <td>{{hospital.hospital_phone1 + ', '+ hospital.hospital_phone2}}</td>
+                      <td>{{hospital.hospital_phone1}}</td>
                       <td>{{hospital.pro_name}}</td>
                       <td>{{hospital.pro_mobile}}</td>
                       <td><span class="badge badge-success">{{hospital.hospital_status?'Active':'Inactive'}}</span></td>
                       <td>
                         <div>
-                          <a routerLink="/hospitals/edit-hospital/{{hospital.id}}" class="btn btn-primary btn-sm">Edit</a>
+                          <a href="#" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a routerLink="/hospitals/edit-hospital/{{hospital.id}}" class="btn btn-primary btn-sm">Edit</a>
                         </div>
                       </td>
                     </tr>
