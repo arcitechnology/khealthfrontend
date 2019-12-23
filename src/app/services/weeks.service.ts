@@ -1,26 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Iweek } from '../prototypes/weekprototype';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+import { HttpClient } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class WeeksService {
-	
-  _weeks:Iweek[];
-  constructor(private _http:Http) {       
+
+  _weeks: Iweek[];
+  constructor(private http: HttpClient) {
   }
-  
-	getWeeks():Observable <Iweek[]>{
-        return this._http.get('http://localhost:3000/slotsWeeks').map((response:Response) => <Iweek[]> response.json())
-        .catch(this.handleError);
-    }
-    
-    handleError(error:Response){
-        return Observable.throw(error);
-    }
+
+  getWeeks(): Observable<Iweek[]> {
+
+    return this.http.get(environment.apiUrl + 'slotsWeeks').pipe(map((weeks: Iweek[]) => {
+      return weeks;
+    }));
+
+  }
+
+  saveTimeSlots(payload: any): Observable<any> {
+    //const payload ={departments:this. }
+    return this.http.post(environment.apiUrl + "doctortimings", payload).pipe(map((hosp: any) => {
+      return hosp;
+    }));
+  }
+  handleError(error: Response) {
+    return Observable.throw(error);
+  }
 }
