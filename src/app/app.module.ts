@@ -34,9 +34,12 @@ import { HospitalsService } from './services/hospital.service';
 import { PatientsService } from './services/patients.service';
 import { DepartmentsService } from './services/departments.service';
 import { UsersService } from './services/users.service';
+import { WeeksService } from './services/weeks.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth.guard';
+import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { AuthGuard } from './guards/auth.guard';
     DashboardComponent,
     AddPatientComponent,
     EditPatientsComponent,
-    LoginComponent
+    LoginComponent,
+    DoctorsAvailabilityComponent,
+    DoctorsTimetableComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,7 @@ import { AuthGuard } from './guards/auth.guard';
   providers: [
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
-    DoctorsService,HospitalsService,DepartmentsService,PatientsService,UsersService
+    DoctorsService,HospitalsService,DepartmentsService,PatientsService,UsersService,WeeksService
   ],
   bootstrap: [AppComponent]
 })

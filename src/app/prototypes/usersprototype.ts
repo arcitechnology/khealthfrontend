@@ -4,5 +4,6 @@ export interface Iuser{
     user_password: string,
     user_role_id: number,
     email: string,
+	mobile: string,
     status: string
 }

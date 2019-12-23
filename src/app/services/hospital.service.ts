@@ -48,17 +48,16 @@ export class HospitalsService {
         }));
     }
 
+    getGeocode(locality){
+		return this._http.get( "https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q="+locality+"&format=json").map(this.extractData).catch(this.handleErrorObservable);;
+     }
+	 
     updateHospital(hospitalData: any, id): Observable<Ihospital> {
         return this.http.put(environment.apiUrl + "hospitals/" + id, hospitalData).pipe(map((hosp: Ihospital) => {
             return hosp;
         }));
 
 
-    }
-
-    getGeocode(locality) {
-        return this._http.get("https://us1.locationiq.com/v1/search.php?key=fc4bcb513ab2b6&q=" + locality + "&format=json").map(this.extractData)
-            .catch(this.handleErrorObservable);;
     }
 
     extractData(res: Response) {

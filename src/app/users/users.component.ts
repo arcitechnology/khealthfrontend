@@ -17,18 +17,15 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10
-    };     
-  }  
+    };
+  }
   ngOnInit() {  
     this._userService.getUsers().subscribe((data) => {
       this.users = data;
-      this.dtTrigger.next();
-    
-    });  
-  }
-
+	  this.dtTrigger.next();    
+    });
+  }  
   ngOnDestroy(){
     this.dtTrigger.unsubscribe();
   }
-
 }

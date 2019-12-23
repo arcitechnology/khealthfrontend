@@ -13,9 +13,7 @@ export class HospitalsComponent implements OnInit, OnDestroy {
 
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
-  
   hospitals: Ihospital[];
-
   constructor(private _hospitalService: HospitalsService) {
     this.dtOptions = {
       pagingType: 'full_numbers',

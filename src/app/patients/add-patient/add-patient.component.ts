@@ -25,6 +25,7 @@ export class AddPatientComponent implements OnInit, AfterViewInit {
   departments: any;
   //selectedDepArray: Array<any> = [];
   public locality: string;
+  amb_avail = false;
   public selLat: string = "16.9534615";
   public selLong: string = "82.2345535";
   public mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=10&size=400x300&markers=" + this.selLat + "," + this.selLong + "";
@@ -65,23 +66,15 @@ export class AddPatientComponent implements OnInit, AfterViewInit {
       // this.initMap();
     });
   }
-
-  /*initMap() {
-    var mapProp = {
-      center: new google.maps.LatLng(18.5793, 73.8143),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-  }*/
-
+  toggleChkBox(e){
+	this.amb_avail = e.target.checked;
+	console.log(this.amb_avail);
+  }
   onSubmit(patient: Ipatient) {
     patient.latitude = this.selLat;
     patient.longitude = this.selLong;
-	patient.avail_ambulance = patient.avail_ambulance ? 1:0;
-    //const payload = { hospital, departments: this.selectedDepArray };
-    // console.log(payload);
-    let response = this._patientService.savePatient(patient).subscribe(
+	patient.avail_ambulance = this.amb_avail ? '1':'0';
+    this._patientService.savePatient(patient).subscribe(
       (data) => {
         this.sweetAlertService.showAlert('success', 'Patient registered successfully.', 'Done!');
         this.router.navigate(['/patients']);

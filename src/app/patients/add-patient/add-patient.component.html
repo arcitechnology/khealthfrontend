@@ -86,8 +86,8 @@
 							  <div class="checkbox checkbox-primary">
 								<div class="custom-control custom-checkbox">
 								  <input type="checkbox" class="custom-control-input" name="avail_ambulance"
-									id="customCheck11" ngModel>
-								  <label class="custom-control-label" for="customCheck11"> Available Ambulance
+									id="customCheck11" [(ngModel)]="amb_avail" (change)="toggleChkBox($event)">
+								  <label class="custom-control-label" for="customCheck11"> Request Ambulance
 									Service</label>
 								</div>
 							  </div>

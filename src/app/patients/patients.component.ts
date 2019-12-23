@@ -12,21 +12,21 @@ import { Subject } from 'rxjs';
 export class PatientsComponent implements OnInit, OnDestroy {
 
   patients:Ipatient[];
-  dtOptions:DataTables.Settings = {};;
-  dtTrigger:Subject<any> = new Subject(); 
-  constructor(private _patientsService:PatientsService,) { 
-	this.dtOptions = {
+  dtOptions:DataTables.Settings = {};
+  dtTrigger:Subject<any> =  new Subject();
+  constructor(private _patientsService:PatientsService) { 
+    this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10
     };
   }
-
   ngOnInit() {
-	this._patientsService.getPatients().subscribe((data) => { 
+	this._patientsService.getPatients().subscribe((data) => {
 		this.patients = data;
 		this.dtTrigger.next();
 	});
   }
+  
   ngOnDestroy(){
 	this.dtTrigger.unsubscribe();
   }

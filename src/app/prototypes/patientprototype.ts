@@ -11,7 +11,6 @@ export interface Ipatient{
     avail_ambulance: string;
     patient_mobile: string;
     helper_mobile: string;
-    other_mobile: string;
     latitude: string;
     longitude: string;
 }
