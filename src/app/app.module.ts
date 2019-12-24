@@ -39,7 +39,8 @@ import { WeeksService } from './services/weeks.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
-import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/doctors-timetable.component';
+import { EditDoctorsTimetableComponent } from './doctors-timetable/edit-doctors-timetable/edit-doctors-timetable.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable
     EditPatientsComponent,
     LoginComponent,
     DoctorsAvailabilityComponent,
-    DoctorsTimetableComponent
+    DoctorsTimetableComponent,
+    EditDoctorsTimetableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { WeeksService } from '../services/weeks.service';
-import { Iweek } from '../prototypes/weekprototype';
+import { WeeksService } from '../../services/weeks.service';
+import { Iweek } from '../../prototypes/weekprototype';
 import { Subject } from 'rxjs';
+import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.service';
 
 @Component({
   selector: 'app-doctors-timetable',
@@ -16,9 +17,9 @@ export class DoctorsTimetableComponent implements OnInit {
   TimeSlots = [];
   hospitals = [];
   doctors = [];
-  selDoctor: any;
-  selHosp: any;
-  constructor(private _weeks: WeeksService) {
+  selDoctor = '';
+  selHosp = '';
+  constructor(private _weeks: WeeksService, public sweetAlertService: SweetAlertService) {
     this._weeks.getWeeks().subscribe((data: any) => {
       this.weeks = data.weeks;
       this.hospitals = data.hospitals;
@@ -70,6 +71,7 @@ export class DoctorsTimetableComponent implements OnInit {
 
     const payload = { departments: availData }
     this._weeks.saveTimeSlots(payload).subscribe(response => {
+      this.sweetAlertService.showAlert('success', 'Timetable Added successfully.', 'Done!');
 
     }, error => {
 

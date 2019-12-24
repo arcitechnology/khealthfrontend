@@ -1,0 +1,96 @@
+<div class="content-page">
+	<!-- Start content -->
+	<div class="content">
+		<div class="container-fluid">
+			<div class="page-title-box">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<h4 class="page-title">Doctors Availabilty</h4>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-right">
+							<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
+							<li class="breadcrumb-item active">Doctors Availabilty</li>
+						</ol>
+					</div>
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end page-title -->
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="card m-b-30">
+						<div class="card-body">
+							<div class="slt_hps">
+								<div class=" text-center">
+									<h5 class="mt-0 m-b-30">Departwise Doctor Availability Hospital Name </h5>
+								</div>
+								<div class="form-group row m-b-30">
+									<label class="col-sm-4 col-form-label">Select Hospital List</label>
+									<div class="col-sm-8">
+										<select (change)="getTimingsByIds()" [(ngModel)]="selHosp" class="form-control">
+											<option value=''>Select Hospital</option>
+											<option value="{{hospital.id}}" *ngFor="let hospital of hospitals">{{hospital.hospital_name}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row m-b-30">
+									<label class="col-sm-4 col-form-label">Select Doctor</label>
+									<div class="col-sm-8">
+											<select (change)="getTimingsByIds()" [(ngModel)]="selDoctor" class="form-control">
+													<option value=''>Select Doctor</option>
+													<option value="{{doctor.id}}" *ngFor="let doctor of doctors">{{doctor.doctor_name}}</option>
+												</select>
+									</div>
+								</div>
+							</div>
+							<div class="doc_avail">								
+								<div class="dep_doc" *ngFor="let week of availabilityData">
+									<h3 class="mt-0 header-title mb-2">{{week.week_name}}</h3>
+									<div class="row m-b-20">
+										<!--<div class="col-sm-3">
+											<h6>Slot 1</h6>
+										</div>-->
+										<div class="col-sm-3">
+											<!-- <input class="form-control" [(ngModel)]="week.from_time" type="text" placeholder="04:30"> -->
+											<select class="form-control"  [(ngModel)]="week.from_time">
+												<option value="{{time.key}}" *ngFor="let time of TimeSlots"> {{time.value}} </option>
+											</select>
+										</div>
+										<div class="col-sm-3">
+						
+											<select class="form-control" [(ngModel)]="week.to_time">
+													<option value="{{time.key}}" *ngFor="let time of TimeSlots"> {{time.value}} </option>
+												</select>
+										</div>
+										<div class="col-sm-3">
+											<div class="onoff">
+												<span class="sl_opt">No</span>
+												<label class="switch">
+													<input [(ngModel)]="week.available" type="checkbox">
+													<span class="slider round"></span>
+												</label>
+												<span class="sl_opt">Yes</span>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</div>
+							<div class="row">
+							<div class="col-sm-12">
+							  <div class="form-group">
+								<div class="text-center">
+								  <button type="button" (click)="saveTimeSlots()" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
+								  <button type="button"
+									class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>
+								</div>
+							  </div>
+							</div>
+                      </div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
