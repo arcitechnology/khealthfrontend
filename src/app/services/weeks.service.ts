@@ -28,9 +28,24 @@ export class WeeksService {
 
   }
 
+  getTimingsByIds(hospId: any, docId: any): Observable<any[]> {
+
+    return this.http.get(environment.apiUrl + 'doctortimings/' + hospId +'/'+ docId).pipe(map((weeks: Iweek[]) => {
+      return weeks;
+    }));
+
+  }
+
   saveTimeSlots(payload: any): Observable<any> {
     //const payload ={departments:this. }
     return this.http.post(environment.apiUrl + "doctortimings", payload).pipe(map((hosp: any) => {
+      return hosp;
+    }));
+  }
+
+  updateTimeSlots(payload: any): Observable<any> {
+    //const payload ={departments:this. }
+    return this.http.put(environment.apiUrl + "doctortimings", payload).pipe(map((hosp: any) => {
       return hosp;
     }));
   }
