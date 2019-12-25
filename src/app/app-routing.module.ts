@@ -19,9 +19,10 @@ import { EditPatientsComponent } from './patients/edit-patients/edit-patients.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
-import { DoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/doctors-timetable.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
+import { AddDoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/add-doctors-timetable.component';
 import { EditDoctorsTimetableComponent } from './doctors-timetable/edit-doctors-timetable/edit-doctors-timetable.component';
-
+import { ViewHospitalComponent } from './hospitals/view-hospital/view-hospital.component';
 
 
 
@@ -44,10 +45,12 @@ const routes: Routes = [
   { path: 'patients/edit-patient', component: EditPatientsComponent, canActivate: [AuthGuard] },
   { path: 'doctors-availability', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable', component: DoctorsTimetableComponent, canActivate: [AuthGuard] },
+  { path: 'add-doctors-timetable', component: AddDoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'edit-doctors-timetable', component: EditDoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'view-hospital', component:ViewHospitalComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

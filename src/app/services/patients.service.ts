@@ -13,7 +13,7 @@ export class PatientsService {
   constructor(private _http:Http) { }	
 
   getPatients():Observable <Ipatient[]>{
-        return this._http.get('http://localhost:3000/patients').map((response:Response) => <Ipatient[]> response.json())
+        return this._http.get(environment.apiUrl + 'patients').map((response:Response) => <Ipatient[]> response.json())
         .catch(this.handleError);
     }
     
@@ -25,7 +25,7 @@ export class PatientsService {
 		console.log(patientData);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post( environment.apiUrl + "patients", patientData, options).map(this.extractData).catch(this.handleError);
+        return this._http.post( environment.apiUrl + 'patients', patientData, options).map(this.extractData).catch(this.handleError);
     }
 	extractData(res: Response) {
         let body = res.json();

@@ -6,11 +6,11 @@ import { SweetAlertService } from 'src/app/services/sweet-alert/sweet-alert.serv
 
 @Component({
   selector: 'app-doctors-timetable',
-  templateUrl: './doctors-timetable.component.html',
-  styleUrls: ['./doctors-timetable.component.css'],
+  templateUrl: './add-doctors-timetable.component.html',
+  styleUrls: ['./add-doctors-timetable.component.css'],
   providers: [WeeksService]
 })
-export class DoctorsTimetableComponent implements OnInit {
+export class AddDoctorsTimetableComponent implements OnInit {
 
   weeks: Iweek[] = [];
   availabilityData: any = [];

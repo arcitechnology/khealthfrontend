@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Idepartment } from '../prototypes/departmentprototype';
+import { environment } from '../../environments/environment';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -15,7 +16,7 @@ export class DepartmentsService {
   }
 
   getDepartments():Observable <Idepartment[]>{
-        return this._http.get('http://localhost:3000/departments').map((response:Response) => <Idepartment[]> response.json())
+        return this._http.get(environment.apiUrl + 'departments').map((response:Response) => <Idepartment[]> response.json())
         .catch(this.handleError);
     }
     
@@ -26,7 +27,7 @@ export class DepartmentsService {
     saveDepartment(department:Idepartment):Observable<Idepartment>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post("http://localhost:3000/departments", department, options)
+        return this._http.post(environment.apiUrl + 'departments', department, options)
                .map(this.extractData)
                .catch(this.handleErrorObservable);
     }
