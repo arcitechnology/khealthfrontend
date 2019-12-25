@@ -51,19 +51,19 @@
 										<!--<div class="col-sm-3">
 											<h6>Slot 1</h6>
 										</div>-->
-										<div class="col-sm-3">
+										<div class="col-sm-4">
 											<!-- <input class="form-control" [(ngModel)]="week.from_time" type="text" placeholder="04:30"> -->
 											<select class="form-control"  [(ngModel)]="week.from_time">
 												<option value="{{time.key}}" *ngFor="let time of TimeSlots"> {{time.value}} </option>
 											</select>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-4">
 						
 											<select class="form-control" [(ngModel)]="week.to_time">
 													<option value="{{time.key}}" *ngFor="let time of TimeSlots"> {{time.value}} </option>
 												</select>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-4">
 											<div class="onoff">
 												<span class="sl_opt">No</span>
 												<label class="switch">
@@ -78,7 +78,7 @@
 							</div>
 							<div class="row">
 							<div class="col-sm-12">
-							  <div class="form-group">
+							  <div class="form-group both_btns">
 								<div class="text-center">
 								  <button type="button" (click)="saveTimeSlots()" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
 								  <button type="button"

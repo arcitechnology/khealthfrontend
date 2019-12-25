@@ -3956,7 +3956,7 @@ table.focus-on tbody tr.focused td {
 
 .dep_doc {
     background: rgba(249, 249, 249, 0.51);
-    padding: 40px;
+    padding: 25px;
     margin-bottom: 25px;
 }
 
@@ -4071,6 +4071,64 @@ table.focus-on tbody tr.focused td {
 }
 li.dr_avail{ color: #3da81c; }
 li.dr_unavail{ color: #f40510; }
-table.viewpg td{
-padding:15px;
+.adn_btn i {
+    vertical-align: middle;
+    margin-right: 7px;
+}
+.adn_btn {
+    text-align: right;
+    margin: 5px 0;
+}
+
+.adn_btn a.btn {
+    background: #1fb191;
+    border: 0;
+    font-size: 16px;
+    padding: 7px 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.adn_btn a.btn:hover{background: #03a2bb;}
+.dataTables_filter input[type="search"]{ 
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.card-body .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.card-body .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: #ffffff !important;
+    border: 1px solid #08a5b2 !important;
+    background-color: #07a4b3 !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(gainsboro));
+    background: linear-gradient(to bottom, #13aba1 0%, #08a5b3 100%) !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+      padding: 2px 11px !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid rgba(17, 17, 17, 0.0392156862745098) !important;
+    margin-bottom: 17px;
+}
+.doc_avail {
+    width: 65%;
+    margin: 25px auto 0;
+}
+.both_btns .btn {
+    padding: 5px 28px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 10px;
+}
+.both_btns .btn-info {
+    background: #21b28d;
+    border: 1px solid #1fb18f;
 }
