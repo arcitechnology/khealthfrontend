@@ -165,7 +165,7 @@ export class AddHospitalComponent implements OnInit, AfterViewInit {
     console.log(this.selectedDepArray);
   }
 
-  getLatLan(event: any) {
+  getLatLan() {
     // alert(this.f.hospital_locality.value);
     this._hospitalService.getGeocode(this.f.hospital_locality.value).subscribe((response: any) => {
       console.log('latlong', response[0]);

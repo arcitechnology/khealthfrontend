@@ -8,6 +8,6 @@ import { AuthService } from '../app/services/auth/auth.service';
 export class AppComponent {
 
   title = 'Komodo Health Services';
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
 }
