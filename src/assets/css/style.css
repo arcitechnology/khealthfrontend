@@ -4071,3 +4071,6 @@ table.focus-on tbody tr.focused td {
 }
 li.dr_avail{ color: #3da81c; }
 li.dr_unavail{ color: #f40510; }
+table.viewpg td{
+padding:15px;
+}

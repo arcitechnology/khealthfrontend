@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
-              <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item active">Patients List</li>
             </ol>
           </div>
@@ -51,7 +51,7 @@
                       <td>{{patient.helper_name}}</td>
                       <td>{{patient.helper_mobile}}</td>
 					  <td>
-                          <a href="#" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a href="#" class="btn btn-primary btn-sm">Edit</a>
+                          <a routerLink="/patients/view-patient/{{patient.id}}" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a routerLink="/patients/edit-patient/{{patient.id}}" class="btn btn-primary btn-sm">Edit</a>
                       </td>
                     </tr>
                   </tbody>

@@ -9,7 +9,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
-              <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item active">Doctors List</li>
             </ol>
           </div>
@@ -50,7 +50,7 @@
                       <td><span class="badge badge-success">{{doctor.active_status==1?'Active':'Inactive'}}</span></td>
                       <td>
                         <div>
-                          <a href="#" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a href="#" class="btn btn-primary btn-sm">Edit</a>
+                          <a routerLink="/doctors/view-doctor/{{doctor.id}}" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a routerLink="/doctors/edit-doctor/{{doctor.id}}" class="btn btn-primary btn-sm">Edit</a>
                         </div>
                       </td>
                     </tr>

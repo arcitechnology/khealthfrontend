@@ -23,6 +23,11 @@ import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable
 import { AddDoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/add-doctors-timetable.component';
 import { EditDoctorsTimetableComponent } from './doctors-timetable/edit-doctors-timetable/edit-doctors-timetable.component';
 import { ViewHospitalComponent } from './hospitals/view-hospital/view-hospital.component';
+import { ViewDepartmentComponent } from './departments/view-department/view-department.component';
+import { ViewPatientComponent } from './patients/view-patient/view-patient.component';
+import { ViewUserComponent } from './users/view-user/view-user.component';
+import { ViewDoctorComponent } from './doctors/view-doctor/view-doctor.component';
+import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-timetable/view-doctor-timetable.component';
 
 
 
@@ -30,27 +35,32 @@ import { ViewHospitalComponent } from './hospitals/view-hospital/view-hospital.c
 const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/add-user', component: AddUserComponent, canActivate: [AuthGuard] },
-  { path: 'users/edit-user', component: EditUserComponent, canActivate: [AuthGuard] },
+  { path: 'users/edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard] },
+  { path: 'users/view-user/:id', component: ViewUserComponent, canActivate: [AuthGuard] },
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard] },
   { path: 'doctors/add-doctor', component: AddDoctorComponent, canActivate: [AuthGuard] },
-  { path: 'doctors/edit-doctor', component: EditDoctorComponent, canActivate: [AuthGuard] },
+  { path: 'doctors/edit-doctor/:id', component: EditDoctorComponent, canActivate: [AuthGuard] },
+  { path: 'doctors/view-doctor/:id', component: ViewDoctorComponent, canActivate: [AuthGuard] },
   { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard] },
   { path: 'departments/add-department', component: AddDepartmentComponent, canActivate: [AuthGuard] },
-  { path: 'departments/edit-department', component: EditDepartmentComponent, canActivate: [AuthGuard] },
+  { path: 'departments/edit-department/:id', component: EditDepartmentComponent, canActivate: [AuthGuard] },
+  { path: 'departments/view-department/:id', component:ViewDepartmentComponent, canActivate: [AuthGuard] },
   { path: 'hospitals', component: HospitalsComponent, canActivate: [AuthGuard] },
   { path: 'hospitals/edit-hospital/:id', component: AddHospitalComponent, canActivate: [AuthGuard] },
-  { path: 'hospitals/add-hospital', component: AddHospitalComponent, canActivate: [AuthGuard] }, 
+  { path: 'hospitals/add-hospital', component: AddHospitalComponent, canActivate: [AuthGuard] },
+  { path: 'hospitals/view-hospital/:id', component:ViewHospitalComponent, canActivate: [AuthGuard] },
   { path: 'patients', component: PatientsComponent, canActivate: [AuthGuard] },
   { path: 'patients/add-patient', component: AddPatientComponent, canActivate: [AuthGuard] },
-  { path: 'patients/edit-patient', component: EditPatientsComponent, canActivate: [AuthGuard] },
+  { path: 'patients/edit-patient/:id', component: EditPatientsComponent, canActivate: [AuthGuard] },
+  { path: 'patients/view-patient/:id', component: ViewPatientComponent, canActivate: [AuthGuard] },
   { path: 'doctors-availability', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable', component: DoctorsTimetableComponent, canActivate: [AuthGuard] },
-  { path: 'add-doctors-timetable', component: AddDoctorsTimetableComponent, canActivate: [AuthGuard] },
-  { path: 'edit-doctors-timetable', component: EditDoctorsTimetableComponent, canActivate: [AuthGuard] },
+  { path: 'doctors-timetable/add-doctors-timetable', component: AddDoctorsTimetableComponent, canActivate: [AuthGuard] },
+  { path: 'doctors-timetable/edit-doctors-timetable/:id', component: EditDoctorsTimetableComponent, canActivate: [AuthGuard] },
+  { path: 'doctors-timetable/view-doctors-timetable/:id', component: ViewDoctorTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'view-hospital', component:ViewHospitalComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
