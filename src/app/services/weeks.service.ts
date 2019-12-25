@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Iweek } from '../prototypes/weekprototype';
 import { Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-
-import { HttpClient } from '@angular/common/http';
-
-import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -17,6 +15,7 @@ import { map } from 'rxjs/operators';
 export class WeeksService {
 
   _weeks: Iweek[];
+  doctimings:Iweek[];
   constructor(private http: HttpClient) {
   }
 
@@ -28,6 +27,11 @@ export class WeeksService {
 
   }
 
+  getDoctorsTimings():Observable<any[]>{
+	return this.http.get(environment.apiUrl + 'doctortimings').pipe(map((doctimings: Iweek[]) => {
+      return doctimings;
+    }));
+  }
   getTimingsByIds(hospId: any, docId: any): Observable<any[]> {
 
     return this.http.get(environment.apiUrl + 'doctortimings/' + hospId +'/'+ docId).pipe(map((weeks: Iweek[]) => {
@@ -38,14 +42,14 @@ export class WeeksService {
 
   saveTimeSlots(payload: any): Observable<any> {
     //const payload ={departments:this. }
-    return this.http.post(environment.apiUrl + "doctortimings", payload).pipe(map((hosp: any) => {
+    return this.http.post(environment.apiUrl + 'doctortimings', payload).pipe(map((hosp: any) => {
       return hosp;
     }));
   }
 
   updateTimeSlots(payload: any): Observable<any> {
     //const payload ={departments:this. }
-    return this.http.put(environment.apiUrl + "doctortimings", payload).pipe(map((hosp: any) => {
+    return this.http.put(environment.apiUrl + 'doctortimings', payload).pipe(map((hosp: any) => {
       return hosp;
     }));
   }

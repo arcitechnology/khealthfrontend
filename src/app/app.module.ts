@@ -39,8 +39,13 @@ import { WeeksService } from './services/weeks.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorsAvailabilityComponent } from './doctors-availability/doctors-availability.component';
-import { DoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/doctors-timetable.component';
+import { DoctorsTimetableComponent } from './doctors-timetable/doctors-timetable.component';
 import { EditDoctorsTimetableComponent } from './doctors-timetable/edit-doctors-timetable/edit-doctors-timetable.component';
+import { ViewDepartmentComponent } from './departments/view-department/view-department.component';
+import { ViewDoctorComponent } from './doctors/view-doctor/view-doctor.component';
+import { ViewUserComponent } from './users/view-user/view-user.component';
+import { ViewHospitalComponent } from './hospitals/view-hospital/view-hospital.component';
+import { AddDoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/add-doctors-timetable.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,12 @@ import { EditDoctorsTimetableComponent } from './doctors-timetable/edit-doctors-
     LoginComponent,
     DoctorsAvailabilityComponent,
     DoctorsTimetableComponent,
-    EditDoctorsTimetableComponent
+    EditDoctorsTimetableComponent,
+    ViewDepartmentComponent,
+    ViewDoctorComponent,
+    ViewUserComponent,
+    ViewHospitalComponent,
+    AddDoctorsTimetableComponent
   ],
   imports: [
     BrowserModule,

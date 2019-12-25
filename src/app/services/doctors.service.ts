@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Idoctor } from '../prototypes/doctorprototype';
+import { environment } from '../../environments/environment';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -13,7 +14,7 @@ export class DoctorsService {
   }
 
     getDoctors():Observable <Idoctor[]>{
-        return this._http.get('http://localhost:3000/doctors').map((response:Response) => <Idoctor[]> response.json())
+        return this._http.get(environment.apiUrl +'doctors').map((response:Response) => <Idoctor[]> response.json())
         .catch(this.handleError);
     }
     
@@ -24,7 +25,7 @@ export class DoctorsService {
     saveDoctor(doctorData:any):Observable<Idoctor>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post("http://localhost:3000/doctors", doctorData, options)
+        return this._http.post(environment.apiUrl +'doctors', doctorData, options)
                .map(this.extractData)
                .catch(this.handleErrorObservable);
     }
