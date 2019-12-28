@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
-import 'metismenu';
 declare let $: any;
 @Component({
   selector: 'app-menubar',
