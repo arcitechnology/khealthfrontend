@@ -17,6 +17,11 @@ export class DoctorsService {
         return this._http.get(environment.apiUrl +'doctors').map((response:Response) => <Idoctor[]> response.json())
         .catch(this.handleError);
     }
+	
+	getDoctorDetails(id:any):Observable <Idoctor[]>{
+        return this._http.get(environment.apiUrl +'doctors/'+ id).map((response:Response) => <Idoctor[]> response.json())
+        .catch(this.handleError);
+    }
     
     handleError(error:Response){
         return Observable.throw(error);

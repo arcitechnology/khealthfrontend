@@ -8,18 +8,20 @@ declare let $: any;
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit, AfterViewInit {
-
-
+  uname:string;
+  
   constructor(private authService: AuthService, private router: Router) { }
-
+  
   ngOnInit() {
+	this.uname = 'user';
 	$('.button-menu-mobile').on('click',function(event){
 		event.preventDefault();
 		$('body').toggleClass("enlarged");
 	});
   }
+  
   ngAfterViewInit() {
-      $('#side-menu').metisMenu();
+      $('#side-menu').metisMenu();	  
    }
 
   logout() {

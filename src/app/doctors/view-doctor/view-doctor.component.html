@@ -25,12 +25,12 @@
             <div class="card-body">
               <div>
                 <div class="table-responsive">
-                  <table class="viewpg">
-					<tr><th>Doctor Name</th><td>:</td><td></td></tr>
-					<tr><th>Qualification</th><td>:</td><td></td></tr>
-					<tr><th>Mobile</th><td>:</td><td></td></tr>
-					<tr><th>Phone</th><td>:</td><td></td></tr>
-					<tr><th>Departments</th><td>:</td><td></td></tr>
+                  <table class="table table-striped viewpg">
+					<tr><th>Doctor Name</th><td>:</td><td>{{doctor.doctor_name}}</td></tr>
+					<tr><th>Qualification</th><td>:</td><td>{{doctor.qualification}}</td></tr>
+					<tr><th>Mobile</th><td>:</td><td>{{doctor.mobile}}</td></tr>
+					<tr><th>Departments</th><td>:</td><td><span *ngFor="let department of departments; last as lastone">{{department.department_name}}{{!lastone?',':''}} </span></td></tr>
+					<tr><th>Status</th><td>:</td><td>{{doctor.active_status?'Yes':'No'}}</td></tr>
 				  </table>
                 </div>
               </div>

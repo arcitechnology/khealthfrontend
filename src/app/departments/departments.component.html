@@ -46,7 +46,7 @@
                     <tr *ngFor="let department of departments; let i = index">
                       <td>{{i+1}}</td>                      
                       <td>{{department.department_name}}</td>
-                      <td style="width:55%">{{department.description}}</td>
+                      <td style="width:55%">{{ (department.description.length > 80)? (department.description | slice:0:80)+'..':(department.description) }}</td>
                       <td>
                         <div>
                           <a routerLink="/departments/view-department/{{department.id}}" class="btn btn-link btn-sm">View</a> &nbsp; &nbsp;<a routerLink="/departments/edit-department/{{department.id}}" class="btn btn-primary btn-sm">Edit</a>

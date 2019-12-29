@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-              <li class="breadcrumb-item"><a routerLink="/hospitals">HOSPITALS</a></li>
+              <li class="breadcrumb-item"><a routerLink="/hospitals">Hospitals</a></li>
               <li class="breadcrumb-item active">Hospital Details</li>
             </ol>
           </div>
@@ -25,15 +25,16 @@
             <div class="card-body">
               <div>
                 <div class="table-responsive">
-                  <table class="viewpg">
-					<tr><th>Hospital Name</th><td>:</td><td></td></tr>
-					<tr><th>Hospital Address</th><td>:</td><td></td></tr>
-					<tr><th>Hospital Locality</th><td>:</td><td></td></tr>
-					<tr><th>Hospital Phone 1</th><td>:</td><td></td></tr>
-					<tr><th>Hospital Phone 2</th><td>:</td><td></td></tr>
-					<tr><th>PRO Name</th><td>:</td><td></td></tr>
-					<tr><th>PRO Contact</th><td>:</td><td></td></tr>					
-					<tr><th>Hospital Departments</th><td>:</td><td></td></tr>
+                  <table class="table table-striped viewpg">
+					<tr><th>Hospital Name</th><td>:</td><td>{{hospital.hospital_name}}</td></tr>
+					<tr><th>Hospital Address</th><td>:</td><td>{{hospital.hospital_address}}</td></tr>
+					<tr><th>Hospital Locality</th><td>:</td><td>{{hospital.hospital_locality}}</td></tr>
+					<tr><th>Hospital Phone 1</th><td>:</td><td>{{hospital.hospital_phone1}}</td></tr>
+					<tr><th>Hospital Phone 2</th><td>:</td><td>{{hospital.hospital_phone2}}</td></tr>
+					<tr><th>PRO Name</th><td>:</td><td>{{hospital.pro_name}}</td></tr>
+					<tr><th>PRO Contact</th><td>:</td><td>{{hospital.pro_mobile}}</td></tr>					
+					<tr><th>Hospital Departments</th><td>:</td><td><span *ngFor="let department of departments; last as lastone">{{department.department_name}}{{!lastone?', ':''}}</span></td></tr>
+					<tr><th>Is Active</th><td>:</td><td>{{hospital.hospital_status?'Yes':'No'}}</td></tr>
 				  </table>
                 </div>
               </div>

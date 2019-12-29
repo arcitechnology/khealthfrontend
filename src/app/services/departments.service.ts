@@ -15,8 +15,13 @@ export class DepartmentsService {
   constructor(private _http:Http) {       
   }
 
-  getDepartments():Observable <Idepartment[]>{
+	getDepartments():Observable <Idepartment[]>{
         return this._http.get(environment.apiUrl + 'departments').map((response:Response) => <Idepartment[]> response.json())
+        .catch(this.handleError);
+    }
+	
+	getDepartmentDetails(id:any):Observable <Idepartment[]>{
+        return this._http.get(environment.apiUrl + 'departments/' + id).map((response:Response) => <Idepartment[]> response.json())
         .catch(this.handleError);
     }
     

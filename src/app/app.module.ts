@@ -89,8 +89,7 @@ import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-ti
     HttpClientModule,
     AppRoutingModule,
     HttpModule,
-    DataTablesModule,  
-
+    DataTablesModule
   ],
   providers: [
     AuthGuard,

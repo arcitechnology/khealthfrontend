@@ -25,16 +25,17 @@
             <div class="card-body">
               <div>
                 <div class="table-responsive">
-                  <table class="viewpg">
-					<tr><th>Patient Name</th><td>:</td><td></td></tr>
-					<tr><th>Patient Address</th><td>:</td><td></td></tr>
-					<tr><th>Patient Locality</th><td>:</td><td></td></tr>
-					<tr><th>Patient Contact</th><td>:</td><td></td></tr>
-					<tr><th>Helper Name</th><td>:</td><td></td></tr>
-					<tr><th>Helper Contact</th><td>:</td><td></td></tr>
-					<tr><th>Problem Description</th><td>:</td><td></td></tr>										
-					<tr><th>Admitted Department</th><td>:</td><td></td></tr>
-					<tr><th>Ambulance Needed</th><td>:</td><td></td></tr>
+                  <table class="table table-striped viewpg">
+					<tr><th>Patient Unique Code</th><td>:</td><td>{{patient.patient_unique_code}}</td></tr>
+					<tr><th>Patient Name</th><td>:</td><td>{{patient.patient_name}}</td></tr>
+					<tr><th>Patient Address</th><td>:</td><td>{{patient.address}}</td></tr>
+					<tr><th>Patient Locality</th><td>:</td><td>{{patient.locality}}</td></tr>
+					<tr><th>Patient Contact</th><td>:</td><td>{{patient.patient_mobile}}</td></tr>
+					<tr><th>Helper Name</th><td>:</td><td>{{patient.helper_name}}</td></tr>
+					<tr><th>Helper Contact</th><td>:</td><td>{{patient.helper_mobile}}</td></tr>
+					<tr><th>Problem Description</th><td>:</td><td>{{patient.problem_description}}</td></tr>										
+					<tr><th>Admitted Department</th><td>:</td><td>{{patient.department_name}}</td></tr>
+					<tr><th>Ambulance Needed</th><td>:</td><td>{{patient.avail_ambulance?'Yes':'No'}}</td></tr>
 				  </table>
                 </div>
               </div>

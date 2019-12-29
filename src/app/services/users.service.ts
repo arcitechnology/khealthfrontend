@@ -21,6 +21,12 @@ export class UsersService {
             return user;
         }));
     }
+	
+	getUserDetails(id:any): Observable<Iuser[]> {
+        return this.http.get(environment.apiUrl + 'users/' + id).pipe(map((user: Iuser[]) => {
+            return user;
+        }));
+    }
 
     saveUser(userData: Iuser): Observable<Iuser> {
         // let headers = new Headers({ 'Content-Type': 'application/json' });

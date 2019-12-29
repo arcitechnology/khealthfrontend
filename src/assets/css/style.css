@@ -4132,3 +4132,12 @@ table.dataTable.no-footer {
     background: #21b28d;
     border: 1px solid #1fb18f;
 }
+.viewpg td{
+	padding:4%;
+}
+.viewpg th{
+	width:20%;
+}
+.viewpg td:nth-child(2) {
+  width: 2%;
+}
