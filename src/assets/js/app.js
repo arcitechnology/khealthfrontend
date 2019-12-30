@@ -57,7 +57,7 @@
 
         //metis menu
 
-        $("#side-menu").metisMenu();
+       // $("#side-menu").metisMenu({toggle:true});
 
     },
 
