@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ViewPatientComponent implements OnInit {
 
-  patient: Ipatient[];
+  patient: Ipatient;
   patientId: string = '';
   constructor(private _patientService: PatientsService, private router: Router, private route: ActivatedRoute) { 
 	

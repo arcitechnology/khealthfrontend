@@ -10,7 +10,7 @@ import { Iuser } from '../../prototypes/usersprototype';
 })
 export class ViewUserComponent implements OnInit {
 
-  user: Iuser[];
+  user: Iuser;
   userId: string = '';
   constructor(private _userService:UsersService, private router: Router, private route: ActivatedRoute) { }
 

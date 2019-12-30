@@ -8,6 +8,7 @@ export interface Ipatient{
     problem: string;
     problem_description: string;
     department: string;
+    department_name?: string;
     avail_ambulance: string;
     patient_mobile: string;
     helper_mobile: string;

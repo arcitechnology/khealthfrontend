@@ -10,7 +10,7 @@ import { Idepartment } from '../../prototypes/departmentprototype';
 })
 export class ViewDepartmentComponent implements OnInit {
 
-  department: Idepartment[];
+  department: Idepartment;
   departmentId: string = '';
   constructor(private _departmentService:DepartmentsService, private router: Router, private route: ActivatedRoute) { }
 

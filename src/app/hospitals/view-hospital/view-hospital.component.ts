@@ -22,6 +22,7 @@ export class ViewHospitalComponent implements OnInit {
 			this._hospitalService.getHospitalById(this.hospitalId).subscribe((data:any) => {
 					if(data.hospital.length){
 						this.hospital = data.hospital[0];
+						console.log('hosp', this.hospital);
 						this.departments =data.departments;
 					}else{
 						console.log('hospital not found');
