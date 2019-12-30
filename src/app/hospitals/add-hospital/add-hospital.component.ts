@@ -33,7 +33,7 @@ export class AddHospitalComponent implements OnInit, AfterViewInit {
   public formTitle = 'HOSPITAL REGISTRATION FORM';
   public selLat: string = "18.5793";
   public selLong: string = "73.8143";
-  public mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=600x450&markers=" + this.selLat + "," + this.selLong + "";
+  public mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=400x300&markers=" + this.selLat + "," + this.selLong + "";
 
   public hospitalForm: FormGroup;
   constructor(private _hospitalService: HospitalsService,
@@ -177,7 +177,7 @@ export class AddHospitalComponent implements OnInit, AfterViewInit {
   }
 
   setMapUrl() {
-    this.mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=600x450&markers=" + this.selLat + "," + this.selLong + "";
+    this.mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=400x300&markers=" + this.selLat + "," + this.selLong + "";
   }
 
 

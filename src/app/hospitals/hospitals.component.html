@@ -14,6 +14,14 @@
             </ol>
           </div>
         </div>
+		<div class="row">
+          <div class="col-lg-12">
+            <div class="adn_btn">
+              <a routerLink="/hospitals/add-hospital" class="waves-effect btn btn-success btn-sm">
+              <i class="icon-plus"></i>Add Hospital</a>
+            </div>
+          </div>
+        </div>
         <!-- end row -->
       </div>
       <!-- end page-title -->
@@ -23,10 +31,6 @@
         <div class="col-xl-12">
           <div class="card m-b-30">
             <div class="card-body">
-              <!--<h4 class="mt-0 header-title mb-4">Active Deals</h4>-->
-              <div>
-                <a routerLink="/hospitals/add-hospital" class="btn btn-success btn-sm">Add Hospital</a>
-              </div>
               <div class="table-responsive">
                 <table class="table table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
                   <thead>
@@ -38,7 +42,7 @@
                       <th scope="col">PRO Name</th>
                       <th scope="col">PRO Contact</th>
                       <th scope="col">Status</th>
-                      <th scope="col">Actions</th>
+                      <th scope="col" style="width:13%">Actions</th>
                     </tr>
                   </thead>
                   <tbody>

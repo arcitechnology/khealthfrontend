@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor} from './interceptor/httpconfig.interceptor';
 
 import { DataTablesModule } from 'angular-datatables';
+import 'metismenu';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -88,8 +89,7 @@ import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-ti
     HttpClientModule,
     AppRoutingModule,
     HttpModule,
-    DataTablesModule,   
-
+    DataTablesModule
   ],
   providers: [
     AuthGuard,

@@ -60,6 +60,7 @@ const routes: Routes = [
   { path: 'doctors-timetable/view-doctors-timetable/:id', component: ViewDoctorTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
