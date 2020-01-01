@@ -11,7 +11,7 @@ import { Idoctor } from '../../prototypes/doctorprototype';
 export class ViewDoctorComponent implements OnInit {
 
   doctor: Idoctor;
-  departments: any[];
+  departments: any;
   doctorId: string = '';
   constructor(private _doctorService:DoctorsService, private router: Router, private route: ActivatedRoute) { }
 

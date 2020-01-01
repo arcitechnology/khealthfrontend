@@ -25,7 +25,7 @@
             <div class="card-body">
               <div>
                 <div class="table-responsive">
-                  <table class="table table-striped viewpg">
+                  <table class="table table-striped viewpg" *ngIf="user">
 					<tr><th>User Name</th><td>:</td><td>{{user.user_name}}</td></tr>
 					<tr><th>Mobile</th><td>:</td><td>{{user.mobile}}</td></tr>
 					<tr><th>Email</th><td>:</td><td>{{user.email}}</td></tr>
