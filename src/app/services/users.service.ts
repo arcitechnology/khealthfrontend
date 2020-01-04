@@ -21,9 +21,15 @@ export class UsersService {
             return user;
         }));
     }
-	
-	getUserDetails(id:any): Observable<Iuser[]> {
+
+    getUserDetails(id: any): Observable<Iuser[]> {
         return this.http.get(environment.apiUrl + 'users/' + id).pipe(map((user: Iuser[]) => {
+            return user;
+        }));
+    }
+
+    getUserInfo(): Observable<Iuser[]> {
+        return this.http.get(environment.apiUrl + 'me').pipe(map((user: Iuser[]) => {
             return user;
         }));
     }
@@ -38,11 +44,15 @@ export class UsersService {
 
     updatePassword(data: any, id: any) {
         return this.http.put(environment.apiUrl + "changepassword", data);
-      }
+    }
+
+    updateUserInfo(data: any) {
+        return this.http.put(environment.apiUrl + "updateprofile", data);
+    }
 
     extractData(res: Response) {
         let body = res.json();
         return body || {};
     }
-    
+
 }
