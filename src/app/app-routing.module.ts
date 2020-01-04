@@ -28,6 +28,8 @@ import { ViewPatientComponent } from './patients/view-patient/view-patient.compo
 import { ViewUserComponent } from './users/view-user/view-user.component';
 import { ViewDoctorComponent } from './doctors/view-doctor/view-doctor.component';
 import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-timetable/view-doctor-timetable.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -59,6 +61,9 @@ const routes: Routes = [
   { path: 'doctors-timetable/edit-doctors-timetable/:id', component: EditDoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable/view-doctors-timetable/:id', component: ViewDoctorTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
+  { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
+  
   { path: 'login', component: LoginComponent },
   { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },

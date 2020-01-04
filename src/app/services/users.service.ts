@@ -36,6 +36,10 @@ export class UsersService {
         }));
     }
 
+    updatePassword(data: any, id: any) {
+        return this.http.put(environment.apiUrl + "changepassword", data);
+      }
+
     extractData(res: Response) {
         let body = res.json();
         return body || {};

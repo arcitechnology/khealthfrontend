@@ -49,6 +49,8 @@ import { ViewHospitalComponent } from './hospitals/view-hospital/view-hospital.c
 import { AddDoctorsTimetableComponent } from './doctors-timetable/add-doctors-timetable/add-doctors-timetable.component';
 import { ViewPatientComponent } from './patients/view-patient/view-patient.component';
 import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-timetable/view-doctor-timetable.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-ti
     ViewHospitalComponent,
     AddDoctorsTimetableComponent,
     ViewPatientComponent,
-    ViewDoctorTimetableComponent
+    ViewDoctorTimetableComponent,
+    ChangePasswordComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
