@@ -25,7 +25,7 @@
             <div class="card-body">
               <div>
                 <div class="table-responsive">
-                  <table class="table table-striped viewpg">
+                  <table class="table table-striped viewpg" *ngIf="patient">
 					<tr><th>Patient Unique Code</th><td>:</td><td>{{patient.patient_unique_code}}</td></tr>
 					<tr><th>Patient Name</th><td>:</td><td>{{patient.patient_name}}</td></tr>
 					<tr><th>Patient Address</th><td>:</td><td>{{patient.address}}</td></tr>
