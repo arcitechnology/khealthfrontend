@@ -51,6 +51,7 @@ import { ViewPatientComponent } from './patients/view-patient/view-patient.compo
 import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-timetable/view-doctor-timetable.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     ViewPatientComponent,
     ViewDoctorTimetableComponent,
     ChangePasswordComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    MappingDoctorsComponent
   ],
   imports: [
     BrowserModule,

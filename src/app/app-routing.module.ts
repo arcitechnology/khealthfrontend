@@ -30,6 +30,7 @@ import { ViewDoctorComponent } from './doctors/view-doctor/view-doctor.component
 import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-timetable/view-doctor-timetable.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
 
 
 
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
+  { path: 'mapping-doctors', component: MappingDoctorsComponent, canActivate: [AuthGuard] },
   
   { path: 'login', component: LoginComponent },
   { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
