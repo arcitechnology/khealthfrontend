@@ -65,10 +65,9 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'mapping-doctors', component: MappingDoctorsComponent, canActivate: [AuthGuard] },
+  { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },  
+  { path: 'login', component: LoginComponent }
   
-  { path: 'login', component: LoginComponent },
-  { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
