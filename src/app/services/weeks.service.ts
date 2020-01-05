@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
 export class WeeksService {
 
   _weeks: Iweek[];
-  doctimings:Iweek[];
+  doctimings: Iweek[];
   constructor(private http: HttpClient) {
   }
 
@@ -27,14 +27,33 @@ export class WeeksService {
 
   }
 
-  getDoctorsTimings():Observable<any[]>{
-	return this.http.get(environment.apiUrl + 'doctortimings').pipe(map((doctimings: Iweek[]) => {
+  getMappingsById(hospId): Observable<any[]> {
+    return this.http.get(environment.apiUrl + 'hospitaldoctors/' + hospId).pipe(map((mappings: any[]) => {
+      return mappings;
+    }));
+
+  }
+
+  saveMapping(payload: any): Observable<any> {
+    return this.http.post(environment.apiUrl + 'hospitaldoctors', payload).pipe(map((hosp: any) => {
+      return hosp;
+    }));
+  }
+
+  updateMapStatus(payload: any): Observable<any> {
+    return this.http.put(environment.apiUrl + 'updateHospDoctorStatus', payload).pipe(map((hosp: any) => {
+      return hosp;
+    }));
+  }
+
+  getDoctorsTimings(): Observable<any[]> {
+    return this.http.get(environment.apiUrl + 'doctortimings').pipe(map((doctimings: Iweek[]) => {
       return doctimings;
     }));
   }
   getTimingsByIds(hospId: any, docId: any): Observable<any[]> {
 
-    return this.http.get(environment.apiUrl + 'doctortimings/' + hospId +'/'+ docId).pipe(map((weeks: Iweek[]) => {
+    return this.http.get(environment.apiUrl + 'doctortimings/' + hospId + '/' + docId).pipe(map((weeks: Iweek[]) => {
       return weeks;
     }));
 
