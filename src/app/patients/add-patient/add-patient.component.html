@@ -19,6 +19,7 @@
       </div>
       <!-- end page-title -->
 
+      <!-- new start -->
       <div class="row">
         <div class="col-xl-12">
           <div class="card m-b-30">
@@ -26,84 +27,151 @@
               <div>
                 <div class="pt_signup">
                   <div>
-                    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+                    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
                       <div class="row">
                         <div class="col-lg-7">
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Patient Name</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="patient_name" ngModel>
+                              <input class="form-control" type="text" formControlName="patient_name" name="patient_name"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.patient_name.errors }">
+                              <div *ngIf="submitted && patientForm.controls.patient_name.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.patient_name.errors.required">Patient Name is required.</div>
+
+                              </div>
                             </div>
                           </div>
-						  <div class="form-group row">
+
+                          <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Helper Name</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="helper_name" ngModel>
+                              <input class="form-control" type="text" formControlName="helper_name" name="helper_name"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.helper_name.errors }">
+                              <div *ngIf="submitted && patientForm.controls.helper_name.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.helper_name.errors.required">Helper Name is required.</div>
+
+                              </div>
                             </div>
                           </div>
-						  <div class="form-group row">
+
+                          <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Helper Mobile</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="helper_mobile" ngModel>
+                              <input class="form-control" type="text" formControlName="helper_mobile"
+                                name="helper_mobile" [ngClass]="{ 'is-invalid': submitted && patientForm.controls.helper_mobile.errors }">
+                              <div *ngIf="submitted && patientForm.controls.helper_mobile.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.required">Helper Phone number 1 is required.</div>
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.maxlength">Helper Phone should be 10 numbers.</div>
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.pattern">Helper Phone should be 10 numbers.</div>
+                              </div>
                             </div>
                           </div>
+
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Other Mobile</label>
                             <div class="col-sm-7">
-                              <input class="form-control" type="text" name="other_mobile" ngModel>
+                              <input class="form-control" type="text" formControlName="patient_mobile"
+                                name="patient_mobile"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.patient_mobile.errors }">
+                              <div *ngIf="submitted && patientForm.controls.patient_mobile.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.required">Other Phone number 2 is required.</div>
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.maxlength">Other Phone number 2 should be 10
+                                  numbers.</div>
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.pattern">Other Phone number2 should be 10 numbers.
+                                </div>
+                              </div>
                             </div>
                           </div>
+
+
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Patient Address</label>
                             <div class="col-sm-7">
-                              <textarea class="form-control" name="address" ngModel></textarea>
+                              <textarea class="form-control" formControlName="address" name="address"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.address.errors }"></textarea>
+                              <div *ngIf="submitted && patientForm.controls.address.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.address.errors.required">Patient Address is required.</div>
+
+                              </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Patient Locality</label>
                             <div class="col-sm-7">
-                              <input class="form-control" (blur)="getLatLan()" name="locality" [(ngModel)]="locality">
+                              <input class="form-control" [(ngModel)]="locality" (blur)="getLatLan()"
+                                formControlName="locality" name="locality"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.locality.errors }">
+                              <div *ngIf="submitted && patientForm.controls.locality.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.locality.errors.required">Patient Locality is required.</div>
+
+                              </div>
                             </div>
-                          </div>						  
-						  <div class="form-group row">
+                          </div>
+                          
+                          <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Problem Description</label>
                             <div class="col-sm-7">
-                              <textarea class="form-control" name="problem_description" ngModel></textarea>
+                              <textarea class="form-control"
+                                formControlName="problem_description" name="problem_description"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.problem_description.errors }">
+                                </textarea>
+                              <div *ngIf="submitted && patientForm.controls.problem_description.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.problem_description.errors.required">Problem Description is required.</div>
+
+                              </div>
                             </div>
                           </div>
-						  <div class="form-group row">
+
+
+                          <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Department</label>
                             <div class="col-sm-7">
-                            <select class="form-control" name="department" ngModel>
+
+                              <select class="form-control" name="department" formControlName="department"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.department.errors }">
                                 <option value="">Select Department</option>
-                                <option value="{{depart.id}}" *ngFor="let depart of departments">{{depart.department_name}}</option>
-                            </select>
+                                <option value="{{depart.id}}" *ngFor="let depart of departments">
+                                  {{depart.department_name}}</option>
+                              </select>
+
+                              <div *ngIf="submitted && patientForm.controls.department.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.department.errors.required">Departmet is required.</div>
+
+                              </div>
+                            </div>
                           </div>
-						  </div>
-                          
-						  <div class="row m-t-10">
-							<div class="col-sm-12">
-							  <div class="checkbox checkbox-primary">
-								<div class="custom-control custom-checkbox">
-								  <input type="checkbox" class="custom-control-input" name="avail_ambulance"
-									id="customCheck11" [(ngModel)]="amb_avail" (change)="toggleChkBox($event)">
-								  <label class="custom-control-label" for="customCheck11"> Request Ambulance
-									Service</label>
-								</div>
-							  </div>
-							</div>
-							</div>
+
+                          <div class="form-group row">
+
+                            <div class="col-sm-7">
+
+                              <div class="checkbox checkbox-primary">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" name="avail_ambulance"
+                                    formControlName="avail_ambulance" id="customCheck11">
+                                  <label class="custom-control-label" for="customCheck11"> Request Ambulance
+                                    Service</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
                         </div>
-						
                         <div class="col-lg-5">
                           <img [src]='mapURL'>
+
                           <div class="sub-title m-t-20">coordinates: {{selLat}}, {{selLong}}</div>
-                        </div>                        
-                      </div>                      
+                        </div>
+
+                      </div>
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="form-group">
                             <div class="text-center">
+                              <input type="hidden" name="hospital_status">
                               <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Submit</button>
                               <button type="button"
                                 class="btn btn-danger btn-sm waves-effect waves-light">Cancel</button>
@@ -119,6 +187,8 @@
           </div>
         </div>
       </div>
+      <!-- new ends here -->
+
     </div>
     <!-- container-fluid -->
   </div>

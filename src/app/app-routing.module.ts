@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'hospitals/view-hospital/:id', component:ViewHospitalComponent, canActivate: [AuthGuard] },
   { path: 'patients', component: PatientsComponent, canActivate: [AuthGuard] },
   { path: 'patients/add-patient', component: AddPatientComponent, canActivate: [AuthGuard] },
-  { path: 'patients/edit-patient/:id', component: EditPatientsComponent, canActivate: [AuthGuard] },
+  { path: 'patients/edit-patient/:id', component: AddPatientComponent, canActivate: [AuthGuard] },
   { path: 'patients/view-patient/:id', component: ViewPatientComponent, canActivate: [AuthGuard] },
   { path: 'doctors-availability', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable', component: DoctorsTimetableComponent, canActivate: [AuthGuard] },
