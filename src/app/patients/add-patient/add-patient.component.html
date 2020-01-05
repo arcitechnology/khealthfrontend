@@ -5,13 +5,13 @@
       <div class="page-title-box">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h4 class="page-title">PATIENT REGISTRATION FORM</h4>
+            <h4 class="page-title">{{formTitle}}</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item"><a routerLink="/patients">Patients</a></li>
-              <li class="breadcrumb-item active">Patient Registration Form</li>
+              <li class="breadcrumb-item active">{{formTitle | titlecase}}</li>
             </ol>
           </div>
         </div>
@@ -35,8 +35,10 @@
                             <div class="col-sm-7">
                               <input class="form-control" type="text" formControlName="patient_name" name="patient_name"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.patient_name.errors }">
-                              <div *ngIf="submitted && patientForm.controls.patient_name.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.patient_name.errors.required">Patient Name is required.</div>
+                              <div *ngIf="submitted && patientForm.controls.patient_name.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.patient_name.errors.required">Patient Name is required.
+                                </div>
 
                               </div>
                             </div>
@@ -47,8 +49,10 @@
                             <div class="col-sm-7">
                               <input class="form-control" type="text" formControlName="helper_name" name="helper_name"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.helper_name.errors }">
-                              <div *ngIf="submitted && patientForm.controls.helper_name.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.helper_name.errors.required">Helper Name is required.</div>
+                              <div *ngIf="submitted && patientForm.controls.helper_name.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.helper_name.errors.required">Helper Name is required.
+                                </div>
 
                               </div>
                             </div>
@@ -58,11 +62,16 @@
                             <label class="col-sm-5 col-form-label">Helper Mobile</label>
                             <div class="col-sm-7">
                               <input class="form-control" type="text" formControlName="helper_mobile"
-                                name="helper_mobile" [ngClass]="{ 'is-invalid': submitted && patientForm.controls.helper_mobile.errors }">
-                              <div *ngIf="submitted && patientForm.controls.helper_mobile.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.helper_mobile.errors.required">Helper Phone number 1 is required.</div>
-                                <div *ngIf="patientForm.controls.helper_mobile.errors.maxlength">Helper Phone should be 10 numbers.</div>
-                                <div *ngIf="patientForm.controls.helper_mobile.errors.pattern">Helper Phone should be 10 numbers.</div>
+                                name="helper_mobile"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.helper_mobile.errors }">
+                              <div *ngIf="submitted && patientForm.controls.helper_mobile.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.required">Helper Phone number 1 is
+                                  required.</div>
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.maxlength">Helper Phone should be
+                                  10 numbers.</div>
+                                <div *ngIf="patientForm.controls.helper_mobile.errors.pattern">Helper Phone should be 10
+                                  numbers.</div>
                               </div>
                             </div>
                           </div>
@@ -73,11 +82,15 @@
                               <input class="form-control" type="text" formControlName="patient_mobile"
                                 name="patient_mobile"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.patient_mobile.errors }">
-                              <div *ngIf="submitted && patientForm.controls.patient_mobile.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.patient_mobile.errors.required">Other Phone number 2 is required.</div>
-                                <div *ngIf="patientForm.controls.patient_mobile.errors.maxlength">Other Phone number 2 should be 10
+                              <div *ngIf="submitted && patientForm.controls.patient_mobile.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.required">Other Phone number 2 is
+                                  required.</div>
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.maxlength">Other Phone number 2
+                                  should be 10
                                   numbers.</div>
-                                <div *ngIf="patientForm.controls.patient_mobile.errors.pattern">Other Phone number2 should be 10 numbers.
+                                <div *ngIf="patientForm.controls.patient_mobile.errors.pattern">Other Phone number2
+                                  should be 10 numbers.
                                 </div>
                               </div>
                             </div>
@@ -90,7 +103,8 @@
                               <textarea class="form-control" formControlName="address" name="address"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.address.errors }"></textarea>
                               <div *ngIf="submitted && patientForm.controls.address.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.address.errors.required">Patient Address is required.</div>
+                                <div *ngIf="patientForm.controls.address.errors.required">Patient Address is required.
+                                </div>
 
                               </div>
                             </div>
@@ -102,21 +116,24 @@
                                 formControlName="locality" name="locality"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.locality.errors }">
                               <div *ngIf="submitted && patientForm.controls.locality.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.locality.errors.required">Patient Locality is required.</div>
+                                <div *ngIf="patientForm.controls.locality.errors.required">Patient Locality is required.
+                                </div>
 
                               </div>
                             </div>
                           </div>
-                          
+
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Problem Description</label>
                             <div class="col-sm-7">
-                              <textarea class="form-control"
-                                formControlName="problem_description" name="problem_description"
+                              <textarea class="form-control" formControlName="problem_description"
+                                name="problem_description"
                                 [ngClass]="{ 'is-invalid': submitted && patientForm.controls.problem_description.errors }">
                                 </textarea>
-                              <div *ngIf="submitted && patientForm.controls.problem_description.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.problem_description.errors.required">Problem Description is required.</div>
+                              <div *ngIf="submitted && patientForm.controls.problem_description.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.problem_description.errors.required">Problem
+                                  Description is required.</div>
 
                               </div>
                             </div>
@@ -135,7 +152,8 @@
                               </select>
 
                               <div *ngIf="submitted && patientForm.controls.department.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.department.errors.required">Departmet is required.</div>
+                                <div *ngIf="patientForm.controls.department.errors.required">Departmet is required.
+                                </div>
 
                               </div>
                             </div>

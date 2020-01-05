@@ -35,6 +35,14 @@ export class DoctorsService {
                .catch(this.handleErrorObservable);
     }
 
+    updateDoctor(doctorData:any, docId: any):Observable<Idoctor>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.put(environment.apiUrl +'doctors/' + docId, doctorData, options)
+               .map(this.extractData)
+               .catch(this.handleErrorObservable);
+    }
+
     extractData(res: Response) {
         let body = res.json();
         return body || {};

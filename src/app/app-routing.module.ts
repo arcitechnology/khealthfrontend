@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'users/view-user/:id', component: ViewUserComponent, canActivate: [AuthGuard] },
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard] },
   { path: 'doctors/add-doctor', component: AddDoctorComponent, canActivate: [AuthGuard] },
-  { path: 'doctors/edit-doctor/:id', component: EditDoctorComponent, canActivate: [AuthGuard] },
+  { path: 'doctors/edit-doctor/:id', component: AddDoctorComponent, canActivate: [AuthGuard] },
   { path: 'doctors/view-doctor/:id', component: ViewDoctorComponent, canActivate: [AuthGuard] },
   { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard] },
   { path: 'departments/add-department', component: AddDepartmentComponent, canActivate: [AuthGuard] },

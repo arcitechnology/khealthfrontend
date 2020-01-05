@@ -30,7 +30,7 @@ export class AddHospitalComponent implements OnInit, AfterViewInit {
   submitted = false;
   public locality: string;
   public hospitalId: string = '';
-  public formTitle = 'HOSPITAL REGISTRATION FORM';
+  public formTitle = 'Doctor REGISTRATION FORM';
   public selLat: string = "18.5793";
   public selLong: string = "73.8143";
   public mapURL = "https://maps.locationiq.com/v2/staticmap?key=fc4bcb513ab2b6&center=" + this.selLat + "," + this.selLong + "&zoom=8&size=400x300&markers=" + this.selLat + "," + this.selLong + "";

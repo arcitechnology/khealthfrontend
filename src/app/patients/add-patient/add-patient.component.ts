@@ -24,6 +24,7 @@ export class AddPatientComponent implements OnInit, AfterViewInit {
   patient: Ipatient;
   departments: any;
   //selectedDepArray: Array<any> = [];
+  public formTitle = 'PATIENT REGISTRATION FORM';
   public locality: string;
   amb_avail = false;
   public selLat: string = "16.9534615";
@@ -56,6 +57,7 @@ export class AddPatientComponent implements OnInit, AfterViewInit {
     this.route.paramMap.subscribe(params => {
       this.patientId = params.get('id');
       if (this.patientId) {
+        this.formTitle = 'PATIENT EDIT FORM';
         this._patientService.getPatientDetails(this.patientId).subscribe((data: any) => {
           if (data.length) {
             this.patient = data[0];
