@@ -24,21 +24,29 @@
             <div class="card-body">
               <div>
                 <div class="pt_signup">
-                  <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+                  <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
                   <div>
                     <div class="row">
                       <div class="col-lg-7">
                         <div class="form-group row">
                           <label class="col-sm-5 col-form-label">Department Name</label>
                           <div class="col-sm-7">
-                            <input class="form-control" type="text" name="department_name" ngModel>
+                            <input class="form-control" formControlName="department_name" type="text"
+							[ngClass]="{ 'is-invalid': submitted && f.department_name.errors }">
+							<div *ngIf="submitted && f.department_name.errors" class="invalid-feedback">
+                                <div *ngIf="f.department_name.errors.required">Department Name is required.</div>
+                            </div>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-5 col-form-label">Description</label>
                           <div class="col-sm-7">
-                            <textarea class="form-control" name="description" ngModel></textarea>
-                          </div>
+                            <textarea class="form-control" formControlName="description" 
+							[ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+							<div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                <div *ngIf="f.description.errors.required">Description is required.</div>
+                            </div>
+						  </div>
                         </div>
                       </div>
                     </div>

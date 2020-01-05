@@ -38,7 +38,7 @@ import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.compo
 const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/add-user', component: AddUserComponent, canActivate: [AuthGuard] },
-  { path: 'users/edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard] },
+  { path: 'users/edit-user/:id', component: AddUserComponent, canActivate: [AuthGuard] },
   { path: 'users/view-user/:id', component: ViewUserComponent, canActivate: [AuthGuard] },
   { path: 'doctors', component: DoctorsComponent, canActivate: [AuthGuard] },
   { path: 'doctors/add-doctor', component: AddDoctorComponent, canActivate: [AuthGuard] },
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'doctors/view-doctor/:id', component: ViewDoctorComponent, canActivate: [AuthGuard] },
   { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard] },
   { path: 'departments/add-department', component: AddDepartmentComponent, canActivate: [AuthGuard] },
-  { path: 'departments/edit-department/:id', component: EditDepartmentComponent, canActivate: [AuthGuard] },
+  { path: 'departments/edit-department/:id', component: AddDepartmentComponent, canActivate: [AuthGuard] },
   { path: 'departments/view-department/:id', component:ViewDepartmentComponent, canActivate: [AuthGuard] },
   { path: 'hospitals', component: HospitalsComponent, canActivate: [AuthGuard] },
   { path: 'hospitals/edit-hospital/:id', component: AddHospitalComponent, canActivate: [AuthGuard] },

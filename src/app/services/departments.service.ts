@@ -29,10 +29,18 @@ export class DepartmentsService {
         return Observable.throw(error);
     }
 
-    saveDepartment(department:Idepartment):Observable<Idepartment>{
+    saveDepartment(department:any):Observable<Idepartment>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post(environment.apiUrl + 'departments', department, options)
+               .map(this.extractData)
+               .catch(this.handleErrorObservable);
+    }
+	
+	updateDepartment(department:any, dId:any):Observable<Idepartment>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.put(environment.apiUrl + 'departments/' + dId, department, options)
                .map(this.extractData)
                .catch(this.handleErrorObservable);
     }
