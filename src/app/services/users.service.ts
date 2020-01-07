@@ -34,18 +34,18 @@ export class UsersService {
         }));
     }
 
-    saveUser(userData: Iuser): Observable<Iuser> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(environment.apiUrl + "users", userData, options).pipe(map((user: Iuser) => {
+    saveUser(userData: any): Observable<Iuser> {
+       // let headers = new Headers({ 'Content-Type': 'application/json' });
+       // let options = new RequestOptions({ headers: headers });
+        return this.http.post(environment.apiUrl + "users", userData).pipe(map((user: Iuser) => {
             return user;
         }));
     }
 	
-	updateUser(userData: Iuser, userId:any): Observable<Iuser> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.put(environment.apiUrl + "users/" + userId, userData, options).pipe(map((user: Iuser) => {
+	updateUser(userData: any, userId:any): Observable<Iuser> {
+       // let headers = new Headers({ 'Content-Type': 'application/json' });
+        // let options = new RequestOptions({ headers: headers });
+        return this.http.put(environment.apiUrl + "users/" + userId, userData).pipe(map((user: Iuser) => {
             return user;
         }));
     }
