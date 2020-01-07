@@ -71,7 +71,7 @@ export class AddDoctorComponent implements OnInit {
   get f() { return this.doctorForm.controls; }
 
 
-  onSubmit(doctor: Idoctor) {
+  onSubmit() {
     this.submitted = true;
     if (this.doctorForm.invalid) {
       return;

@@ -11,5 +11,8 @@ export class EditDepartmentComponent implements OnInit {
 
   ngOnInit() {
   }
+  onSubmit(f: any) {
+
+  }
 
 }

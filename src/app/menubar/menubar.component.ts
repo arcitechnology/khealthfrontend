@@ -13,7 +13,7 @@ export class MenubarComponent implements OnInit, AfterViewInit {
   constructor(private authService: AuthService, private router: Router) { }
   
   ngOnInit() {
-	this.uname = 'user';
+	this.uname = (this.authService.getUserName())? this.authService.getUserName(): 'anonymous';
 	$('.button-menu-mobile').on('click',function(event){
 		event.preventDefault();
 		$('body').toggleClass("enlarged");

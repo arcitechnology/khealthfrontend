@@ -24,5 +24,8 @@ export class EditDoctorComponent implements OnInit {
 
   ngOnInit() {
   }
+  onSubmit(f:any){
+    
+  }
 
 }

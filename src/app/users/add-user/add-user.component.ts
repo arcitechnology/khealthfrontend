@@ -62,7 +62,7 @@ export class AddUserComponent implements OnInit {
 		return this.userForm.controls;
 	}
 
-	onSubmit(user: Iuser) {
+	onSubmit() {
 
 		this.submitted = true;
 		if (this.userForm.invalid) {

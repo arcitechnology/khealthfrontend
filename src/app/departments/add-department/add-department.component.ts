@@ -50,7 +50,7 @@ export class AddDepartmentComponent implements OnInit {
     });
   }
 	get f() { return this.departmentForm.controls; }
-	onSubmit(department:Idepartment){
+	onSubmit(){
 		this.submitted = true;
 		if (this.departmentForm.invalid) {
 		  return;

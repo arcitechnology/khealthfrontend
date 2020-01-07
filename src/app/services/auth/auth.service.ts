@@ -32,10 +32,17 @@ export class AuthService {
       && localStorage.getItem('currentUser') !== '') ? JSON.parse(localStorage.getItem('currentUser')) : null;
   }
 
+
+
   isAuthenticated() {
     
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return (currentUser && currentUser.token);
+  }
+
+  getUserName(){
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    return (currentUser && currentUser.userdata.name);
   }
 
   logout() {
