@@ -30,9 +30,15 @@ export class AddDoctorsTimetableComponent implements OnInit {
           week_name: week.week_name,
           hospital_id: '',
           doctor_id: '',
-          available: 0,
-          from_time: "00:00",
-          to_time: '00:00'
+          slots: [{
+            available: 0,
+            from_time: "00:00",
+            to_time: '00:00'
+          }, {
+            available: 0,
+            from_time: "00:00",
+            to_time: '00:00'
+          }]
         }
         this.availabilityData.push(availDt);
       })
@@ -57,6 +63,17 @@ export class AddDoctorsTimetableComponent implements OnInit {
 
   }
 
+  addMoreSlots(index) {
+    // alert(index);
+    const slot = {
+      available: 0,
+      from_time: "00:00",
+      to_time: '00:00'
+    }
+    this.availabilityData[index].slots.push(slot);
+    console.log(this.availabilityData);
+  }
+
   saveTimeSlots() {
     console.log('test', this.availabilityData);
 
@@ -65,9 +82,15 @@ export class AddDoctorsTimetableComponent implements OnInit {
     availData.map(data => {
       data.hospital_id = this.selHosp;
       data.doctor_id = this.selDoctor;
-      data.available = (data.available) ? 1 : 0;
+      // data.available = (data.available) ? 1 : 0;
+      data.slots.map(slot => {
+        slot.available = (slot.available) ? 1 : 0;
+      })
       delete (data.week_name);
+
     })
+
+    console.log(availData, 'availData');
 
     const payload = { departments: availData }
     this._weeks.saveTimeSlots(payload).subscribe(response => {
