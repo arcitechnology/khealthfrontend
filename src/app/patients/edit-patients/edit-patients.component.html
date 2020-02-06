@@ -36,6 +36,27 @@
                             </div>
                           </div>
 						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Problem</label>
+                            <div class="col-sm-7">
+                              <input class="form-control" type="text" name="problem" ngModel>
+                            </div>
+                          </div>
+						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Problem Description</label>
+                            <div class="col-sm-7">
+                              <textarea class="form-control" name="problem_description" ngModel></textarea>
+                            </div>
+                          </div>
+						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Department</label>
+                            <div class="col-sm-7">
+                            <select class="form-control" name="department" ngModel>
+                                <option value="">Select Department</option>
+                                <option value="{{depart.id}}" *ngFor="let depart of departments">{{depart.department_name}}</option>
+                            </select>
+                          </div>
+						  </div>
+						  <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Helper Name</label>
                             <div class="col-sm-7">
                               <input class="form-control" type="text" name="helper_name" ngModel>
@@ -65,22 +86,7 @@
                               <input class="form-control" (blur)="getLatLan()" name="locality" [(ngModel)]="locality">
                             </div>
                           </div>						  
-						  <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Problem Description</label>
-                            <div class="col-sm-7">
-                              <textarea class="form-control" name="problem_description" ngModel></textarea>
-                            </div>
-                          </div>
-						  <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Department</label>
-                            <div class="col-sm-7">
-                            <select class="form-control" name="department" ngModel>
-                                <option value="">Select Department</option>
-                                <option value="{{depart.id}}" *ngFor="let depart of departments">{{depart.department_name}}</option>
-                            </select>
-                          </div>
-						  </div>
-                          
+						                            
 						  <div class="row m-t-10">
 							<div class="col-sm-12">
 							  <div class="checkbox checkbox-primary">

@@ -1,0 +1,56 @@
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h4 class="page-title">ADD NEW DOCTOR</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/doctors">Doctors</a></li>
+              <li class="breadcrumb-item active">Add Doctor</li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end page-title -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <div>
+                <div class="pt_signup">
+                  <div>
+                    <form [formGroup]="fetchHospitalsForm" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                        <div class="col-lg-7">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Patient Unique Id</label>
+                            <div class="col-sm-5">
+                              <input class="form-control" type="text" formControlName="patient_unique_id" name="patient_unique_id"
+                                [ngClass]="{ 'is-invalid': submitted && f.patient_unique_id.errors }">
+                              <div *ngIf="submitted && f.patient_unique_id.errors" class="invalid-feedback">
+                                <div *ngIf="f.patient_unique_id.errors.required">Please enter valid patient unique Id.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+					</div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  <app-patientdata [cur_patient]="patient"></app-patientdata>
+      <!-- container-fluid -->
+    </div>
+  </div>
+</div>
+<!-- content -->

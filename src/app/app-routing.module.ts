@@ -31,6 +31,7 @@ import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-ti
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
+import { FetchAndShowHospitalsComponent } from './fetch-and-show-hospitals/fetch-and-show-hospitals.component';
 
 
 
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'mapping-doctors', component: MappingDoctorsComponent, canActivate: [AuthGuard] },
+  { path: 'fetch-hospitals/:id', component: FetchAndShowHospitalsComponent, canActivate: [AuthGuard] },
   { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },  
   { path: 'login', component: LoginComponent }
   

@@ -43,7 +43,51 @@
                               </div>
                             </div>
                           </div>
+						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Problem</label>
+                            <div class="col-sm-7">
+                              <input class="form-control" type="text" formControlName="problem" name="problem"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.problem.errors }">
+                              <div *ngIf="submitted && patientForm.controls.problem.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.problem.errors.required">Problem field is required.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Problem Description</label>
+                            <div class="col-sm-7">
+                              <textarea class="form-control" formControlName="problem_description"
+                                name="problem_description"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.problem_description.errors }">
+                                </textarea>
+                              <div *ngIf="submitted && patientForm.controls.problem_description.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.problem_description.errors.required">Problem
+                                  Description is required.</div>
 
+                              </div>
+                            </div>
+                          </div>
+						  <div class="form-group row">
+                            <label class="col-sm-5 col-form-label">Department</label>
+                            <div class="col-sm-7">
+
+                              <select class="form-control" name="department" formControlName="department"
+                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.department.errors }">
+                                <option value="">Select Department</option>
+                                <option value="{{depart.id}}" *ngFor="let depart of departments">
+                                  {{depart.department_name}}</option>
+                              </select>
+
+                              <div *ngIf="submitted && patientForm.controls.department.errors" class="invalid-feedback">
+                                <div *ngIf="patientForm.controls.department.errors.required">Departmet is required.
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <label class="col-sm-5 col-form-label">Helper Name</label>
                             <div class="col-sm-7">
@@ -122,47 +166,8 @@
                               </div>
                             </div>
                           </div>
-
-                          <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Problem Description</label>
+						  <div class="form-group row">
                             <div class="col-sm-7">
-                              <textarea class="form-control" formControlName="problem_description"
-                                name="problem_description"
-                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.problem_description.errors }">
-                                </textarea>
-                              <div *ngIf="submitted && patientForm.controls.problem_description.errors"
-                                class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.problem_description.errors.required">Problem
-                                  Description is required.</div>
-
-                              </div>
-                            </div>
-                          </div>
-
-
-                          <div class="form-group row">
-                            <label class="col-sm-5 col-form-label">Department</label>
-                            <div class="col-sm-7">
-
-                              <select class="form-control" name="department" formControlName="department"
-                                [ngClass]="{ 'is-invalid': submitted && patientForm.controls.department.errors }">
-                                <option value="">Select Department</option>
-                                <option value="{{depart.id}}" *ngFor="let depart of departments">
-                                  {{depart.department_name}}</option>
-                              </select>
-
-                              <div *ngIf="submitted && patientForm.controls.department.errors" class="invalid-feedback">
-                                <div *ngIf="patientForm.controls.department.errors.required">Departmet is required.
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-
-                            <div class="col-sm-7">
-
                               <div class="checkbox checkbox-primary">
                                 <div class="custom-control custom-checkbox">
                                   <input type="checkbox" class="custom-control-input" name="avail_ambulance"

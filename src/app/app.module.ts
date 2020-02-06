@@ -52,6 +52,8 @@ import { ViewDoctorTimetableComponent } from './doctors-timetable/view-doctor-ti
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
+import { FetchAndShowHospitalsComponent } from './fetch-and-show-hospitals/fetch-and-show-hospitals.component';
+import { PatientdataComponent } from './fetch-and-show-hospitals/patientdata/patientdata.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.compo
     ViewDoctorTimetableComponent,
     ChangePasswordComponent,
     AccountSettingsComponent,
-    MappingDoctorsComponent
+    MappingDoctorsComponent,
+    FetchAndShowHospitalsComponent,
+    PatientdataComponent
   ],
   imports: [
     BrowserModule,
