@@ -12,5 +12,8 @@ export class PatientdataComponent implements OnInit {
 
   ngOnInit() {
   }
+  getHospitalList(){
+	console.log('hello');
+  }
 
 }

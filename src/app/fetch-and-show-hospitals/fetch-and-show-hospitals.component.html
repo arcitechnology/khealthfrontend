@@ -5,13 +5,12 @@
       <div class="page-title-box">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h4 class="page-title">ADD NEW DOCTOR</h4>
+            <h4 class="page-title">SEND NEAREST HOSPITAL LIST TO PATIENT</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-              <li class="breadcrumb-item"><a routerLink="/doctors">Doctors</a></li>
-              <li class="breadcrumb-item active">Add Doctor</li>
+              <li class="breadcrumb-item"><a routerLink="/fetch-hospitals">Sent Message</a></li>
             </ol>
           </div>
         </div>
@@ -37,6 +36,9 @@
                                 <div *ngIf="f.patient_unique_id.errors.required">Please enter valid patient unique Id.</div>
                               </div>
                             </div>
+							<div class="col-sm-2">
+								<button>GO</button>
+							</div>
                           </div>
                         </div>
 					</div>
