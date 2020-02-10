@@ -28,7 +28,7 @@
 								<div class="form-group row m-b-30">
 									<label class="col-sm-4 col-form-label">Select Hospital List</label>
 									<div class="col-sm-8">
-										<select [(ngModel)]="selHosp" class="form-control">
+										<select (change)="getTimingsByIds()" [(ngModel)]="selHosp" class="form-control">
 											<option value=''>Select Hospital</option>
 											<option value="{{hospital.id}}" *ngFor="let hospital of hospitals">
 												{{hospital.hospital_name}}</option>
@@ -38,7 +38,8 @@
 								<div class="form-group row m-b-30">
 									<label class="col-sm-4 col-form-label">Select Doctor</label>
 									<div class="col-sm-8">
-										<select [(ngModel)]="selDoctor" class="form-control">
+										<select (change)="getTimingsByIds()" [(ngModel)]="selDoctor"
+											class="form-control">
 											<option value=''>Select Doctor</option>
 											<option value="{{doctor.id}}" *ngFor="let doctor of doctors">
 												{{doctor.doctor_name}}</option>
@@ -49,24 +50,26 @@
 							<div class="doc_avail">
 								<div class="dep_doc" *ngFor="let week of availabilityData; let i= index;">
 									<div class="row">
-										<div class="mr-2" >
+										<div class="mr-2">
 											<span class="mt-0 header-title mb-2 ">{{week.week_name}}</span>
 										</div>
-										<button (click)="addMoreSlots(i)" class="btn btn-success btn-sm waves-effect waves-light pull-right mr-2 mb-2">+ Add
+										<button (click)="addMoreSlots(i)"
+											class="btn btn-success btn-sm waves-effect waves-light pull-right mr-2 mb-2">+
+											Add
 											more slots</button>
 									</div>
-									<div class="row m-b-20" *ngFor="let slot of week.slots">
+									<div class="row m-b-20" *ngFor="let slot of week.slots; let sindex = index;">
 										<!--<div class="col-sm-3">
 											<h6>Slot 1</h6>
 										</div>-->
-										<div class="col-sm-4">
+										<div class="col-sm-3">
 											<!-- <input class="form-control" [(ngModel)]="week.from_time" type="text" placeholder="04:30"> -->
 											<select class="form-control" [(ngModel)]="slot.from_time">
 												<option value="{{time.key}}" *ngFor="let time of TimeSlots">
 													{{time.value}} </option>
 											</select>
 										</div>
-										<div class="col-sm-4">
+										<div class="col-sm-3">
 
 											<select class="form-control" [(ngModel)]="slot.to_time">
 												<option value="{{time.key}}" *ngFor="let time of TimeSlots">
@@ -83,6 +86,12 @@
 												<span class="sl_opt">Yes</span>
 											</div>
 										</div>
+										<div class="col-sm-1">
+												<button (click)="removeSlots(i, sindex)"
+												class="btn btn-danger btn-sm waves-effect waves-light pull-right mb-2">
+												-</button>
+										</div>
+
 									</div>
 								</div>
 							</div>

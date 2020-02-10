@@ -51,6 +51,7 @@ export class WeeksService {
       return doctimings;
     }));
   }
+
   getTimingsByIds(hospId: any, docId: any): Observable<any[]> {
 
     return this.http.get(environment.apiUrl + 'doctortimings/' + hospId + '/' + docId).pipe(map((weeks: Iweek[]) => {
@@ -65,6 +66,7 @@ export class WeeksService {
       return hosp;
     }));
   }
+
 
   updateTimeSlots(payload: any): Observable<any> {
     //const payload ={departments:this. }
