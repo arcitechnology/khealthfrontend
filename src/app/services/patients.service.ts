@@ -21,7 +21,11 @@ export class PatientsService {
         return this._http.get(environment.apiUrl + 'patients/' + id).map((response: Response) => <Ipatient[]>response.json())
             .catch(this.handleError);
     }
-
+	
+	getPatientByCode(id: any): Observable<any[]> {
+        return this._http.get(environment.apiUrl + 'getpatientbycode/' + id).map((response: Response) => <any[]>response.json())
+            .catch(this.handleError);
+    }
     savePatient(patientData: any): Observable<Ipatient> {
         console.log(patientData);
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -36,7 +40,10 @@ export class PatientsService {
         return this._http.put(environment.apiUrl + 'patients/' + patientId, patientData, options).map(this.extractData).catch(this.handleError);
     }
 
-
+	getNearestHospitalsList(id){
+		return this._http.get(environment.apiUrl + 'getnearestforpatient/' + id).map((response: Response) => <any[]>response.json())
+            .catch(this.handleError);
+	}
 
     handleError(error: Response) {
         return Observable.throw(error);

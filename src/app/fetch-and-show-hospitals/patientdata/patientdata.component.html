@@ -13,9 +13,9 @@
 				<tr><th>Helper Name</th><td>:</td><td>{{cur_patient.helper_name}}</td></tr>
 				<tr><th>Helper Contact</th><td>:</td><td>{{cur_patient.helper_mobile}}</td></tr>
 				<tr><th>Problem Description</th><td>:</td><td>{{cur_patient.problem_description}}</td></tr>										
-				<tr><th>Admitted Department</th><td>:</td><td>{{cur_patient.department_name}}</td></tr>
+				<tr><th>Referred Department</th><td>:</td><td>{{cur_patient.department_name}}</td></tr>
 				<tr><th>Ambulance Needed</th><td>:</td><td>{{cur_patient.avail_ambulance?'Yes':'No'}}</td></tr>
-				<tr><th><input type="button" class="btn btn-sm btn-primary" value="Next"></th><td></td><td></td></tr>
+				<tr><th><button class="btn btn-sm btn-primary" (click)="getHospitalList(cur_patient.patient_unique_code)">Search Nearest Hospitals</button></th><td></td><td></td></tr>
 			  </table>
 			</div>
 		  </div>
@@ -23,45 +23,36 @@
 	  </div>
 	</div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="show_hospitals">
 	<div class="col-xl-12">
 	  <div class="card m-b-30">
 		<div class="card-body">
 			<h4>Nearest Hospitals List</h4>
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-					Nayana Eye Care,<br>
-					Bhanugudi Junction,<br>
-					kakinada,<br>
-					contact -5659655565.<br>
-					Distance - 2.5 Km<br>
+			<hr>			
+				<div class="row" *ngFor="let hospital of hospitals">
+					<div class="col-md-2">
+						Hospital Name:<br>
+						Hospital Address:<br>
+						Hospital Area:<br>
+						Hospital Phone:<br>
+						Distance:<br>
+					</div>
+					<div class="col-md-8">
+						{{hospital.hospital_name}}<br>
+						{{hospital.hospital_address}}<br>
+						{{hospital.hospital_locality}}<br>
+						{{hospital.hospital_phone1}}<br>
+						{{hospital.distance}} Km<br>
+					</div>
+				<hr>
 				</div>
-			</div>
-			<hr>
+			<br>	
 			<div class="row">
 				<div class="col-md-8">
-					Nayana Eye Care,<br>
-					Bhanugudi Junction,<br>
-					kakinada,<br>
-					contact -5659655565.<br>
-					Distance - 2.5 Km<br>
+				<button class="btn btn-sm btn-primary" (click)="showMessage()">Send Message to patient</button>
 				</div>
-			</div>
-			<hr>
-			<div class="row">
 				<div class="col-md-8">
-					Nayana Eye Care,<br>
-					Bhanugudi Junction,<br>
-					kakinada,<br>
-					contact -5659655565.<br>
-					Distance - 2.5 Km<br>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-				<input type="button" class="btn btn-sm btn-primary" value="Send Message">
+				{{sms_text}}
 				</div>
 			</div>
 		</div>

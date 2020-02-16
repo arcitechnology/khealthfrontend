@@ -1,3 +1,35 @@
-<p>
-  view-doctor-timetable works!
-</p>
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h4 class="page-title">Doctor Time for the Week</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/doctors-timetable">Doctors Timetable</a></li>
+              <li class="breadcrumb-item"><a>View</a></li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+	  <div class="row" *ngIf="isdataAvail">
+				<div class="col-xl-12">
+				  <div class="card m-b-30">
+					<div class="card-body">
+						<div class="row" *ngFor="let week of availabilityData">
+							<ul><strong>{{weeks[week.week_id]}}</strong>
+							<li *ngFor="let dt of week.slots">{{'from: '+dt.from_time+' to: '+dt.to_time}}</li>
+							</ul>
+						</div>						
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
