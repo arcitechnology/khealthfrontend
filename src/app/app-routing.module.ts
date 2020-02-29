@@ -32,7 +32,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
 import { FetchAndShowHospitalsComponent } from './fetch-and-show-hospitals/fetch-and-show-hospitals.component';
-
+import { UpdateDepartmentsAvailComponent } from './update-departments-avail/update-departments-avail.component';
 
 
 
@@ -61,15 +61,14 @@ const routes: Routes = [
   { path: 'doctors-timetable', component: DoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable/add-doctors-timetable', component: AddDoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable/edit-doctors-timetable/:hospId/:docId', component: AddDoctorsTimetableComponent, canActivate: [AuthGuard] },
-  // { path: 'doctors-timetable/edit-doctors-timetable/:id', component: EditDoctorsTimetableComponent, canActivate: [AuthGuard] },
   { path: 'doctors-timetable/view-doctors-timetable/:hospId/:docId', component: ViewDoctorTimetableComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: 'account-settings', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'mapping-doctors', component: MappingDoctorsComponent, canActivate: [AuthGuard] },
-  { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },
   { path: 'fetch-hospitals', component: FetchAndShowHospitalsComponent, canActivate: [AuthGuard] },
-  { path: '', component: DoctorsAvailabilityComponent, canActivate: [AuthGuard] },  
+  { path: 'update-hospitals-departments', component: UpdateDepartmentsAvailComponent, canActivate: [AuthGuard] },  
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },  
   { path: 'login', component: LoginComponent }
 
 ];

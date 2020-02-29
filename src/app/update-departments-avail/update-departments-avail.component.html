@@ -1,0 +1,79 @@
+<div class="content-page">
+	<!-- Start content -->
+	<div class="content">
+		<div class="container-fluid">
+			<div class="page-title-box">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<h4 class="page-title">Hospitals Departments Availabilty</h4>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-right">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item active">Hospitals Department Availabilty</li>
+						</ol>
+					</div>
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end page-title -->
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							<div class="row">
+								<div class="col-md-2">
+									Hospital Name
+								</div>
+								<div class="col-md-3">
+									Select Departments
+								</div>
+								<div class="col-md-2">
+									From time
+								</div>
+								<div class="col-md-2">
+									To time
+								</div>
+								<div class="col-md-2">
+									Available
+								</div>
+								<div class="col-md-1">
+									Action
+								</div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let l of _loop">
+						<td>
+							<div class="row">
+								<div class="col-md-2">
+									<input class="form-control" name="hospital{{l.hospital.hospital_id}}" value="{{l.hospital.hospital_name}}" disabled>
+								</div>
+								<div class="col-md-3">
+									<select class="form-control" name="hosp_depart{{l.hospital.hospital_id}}">
+										<option value=''>Select Departments</option>
+										<option *ngFor="let dep of l.departments" value="{{dep.department_id}}">{{dep.department_name}}</option>
+									</select>
+								</div>
+								<div class="col-md-2">
+									<input class="form-control" name="from_time{{l.hospital.hospital_id}}" placeholder="09:00">
+								</div>
+								<div class="col-md-2">
+									<input class="form-control" name="to_time{{l.hospital.hospital_id}}" placeholder="17:30">
+								</div>
+								<div class="col-md-1" style="text-align:center;">
+									  <input type="checkbox" name="avail{{l.hospital.hospital_id}}">
+								</div>
+								<div class="col-md-1 offset-md-1">
+									<button class="btn btn-sm btn-danger" (click)="sendValues(l.hospital.hospital_id)">Ok</button>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>

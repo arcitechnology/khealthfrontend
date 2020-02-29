@@ -36,6 +36,7 @@ import { PatientsService } from './services/patients.service';
 import { DepartmentsService } from './services/departments.service';
 import { UsersService } from './services/users.service';
 import { WeeksService } from './services/weeks.service';
+import { AdminService } from './services/admin.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './guards/auth.guard';
@@ -54,6 +55,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.component';
 import { FetchAndShowHospitalsComponent } from './fetch-and-show-hospitals/fetch-and-show-hospitals.component';
 import { PatientdataComponent } from './fetch-and-show-hospitals/patientdata/patientdata.component';
+import { UpdateDepartmentsAvailComponent } from './update-departments-avail/update-departments-avail.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,8 @@ import { PatientdataComponent } from './fetch-and-show-hospitals/patientdata/pat
     AccountSettingsComponent,
     MappingDoctorsComponent,
     FetchAndShowHospitalsComponent,
-    PatientdataComponent
+    PatientdataComponent,
+    UpdateDepartmentsAvailComponent
   ],
   imports: [
     BrowserModule,
