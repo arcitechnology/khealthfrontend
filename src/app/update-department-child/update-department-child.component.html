@@ -1,0 +1,26 @@
+<form [formGroup]="departForm" (ngSubmit)="onsubmit()">
+	<div class="row">
+		<div class="col-md-2">
+			<input class="form-control" formControlName="hospital_name" disabled>
+		</div>
+		<div class="col-md-3">
+			<!--<input class="form-control" formControlName="departments">-->
+			<select class="form-control" formControlName="department" [ngClass]="{ 'is-invalid': submitted && f.department.errors }">
+				<option value=''>Select Departments</option>
+				<option *ngFor="let dep of frmdata.departments" value="{{dep.department_id}}">{{dep.department_name}}</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<input class="form-control" formControlName="from_time" placeholder="09:00" [ngClass]="{ 'is-invalid': submitted && f.from_time.errors }">
+		</div>
+		<div class="col-md-2">
+			<input class="form-control" formControlName="to_time" placeholder="17:30" [ngClass]="{ 'is-invalid': submitted && f.to_time.errors }">
+		</div>
+		<div class="col-md-1" style="text-align:center;">
+			  <input type="checkbox" formControlName="available">
+		</div>
+		<div class="col-md-1 offset-md-1">
+			<button class="btn btn-sm btn-primary">Update</button>
+		</div>
+	</div>
+</form>

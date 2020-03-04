@@ -9,20 +9,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./update-departments-avail.component.css']
 })
 export class UpdateDepartmentsAvailComponent implements OnInit {
-
   _loop:any = [];
-  hospital_id:number;
   constructor(private _admin: AdminService) { 
 	this._admin.getAvailDepart().subscribe((data: any) => {
       this._loop = data;
 	});
   }
-  ngOnInit() {
-  
+  ngOnInit() {  
   }
-  
-  sendValues(hospital_id:number){
-	console.log(hospital_id);
-  }
-
 }

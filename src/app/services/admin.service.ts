@@ -23,7 +23,18 @@ export class AdminService {
         return this._http.get(environment.apiUrl +'getfordepartmentupdate').map((response:Response) => <any> response.json())
         .catch(this.handleError);
     }
+	
+	saveAvailDepart(availData: any): Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.post(environment.apiUrl + 'savecurrentavailability', availData, options).map(this.extractData).catch(this.handleError);
+    }
 	handleError(error:Response){
         return Observable.throw(error);
+    }
+	
+	extractData(res: Response) {
+        let body = res.json();
+        return body || {};
     }
 }

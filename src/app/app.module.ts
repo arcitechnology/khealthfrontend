@@ -56,6 +56,7 @@ import { MappingDoctorsComponent } from './mapping-doctors/mapping-doctors.compo
 import { FetchAndShowHospitalsComponent } from './fetch-and-show-hospitals/fetch-and-show-hospitals.component';
 import { PatientdataComponent } from './fetch-and-show-hospitals/patientdata/patientdata.component';
 import { UpdateDepartmentsAvailComponent } from './update-departments-avail/update-departments-avail.component';
+import { UpdateDepartmentChildComponent } from './update-department-child/update-department-child.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { UpdateDepartmentsAvailComponent } from './update-departments-avail/upda
     MappingDoctorsComponent,
     FetchAndShowHospitalsComponent,
     PatientdataComponent,
-    UpdateDepartmentsAvailComponent
+    UpdateDepartmentsAvailComponent,
+    UpdateDepartmentChildComponent
   ],
   imports: [
     BrowserModule,

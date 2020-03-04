@@ -47,29 +47,7 @@
 				<tbody>
 					<tr *ngFor="let l of _loop">
 						<td>
-							<div class="row">
-								<div class="col-md-2">
-									<input class="form-control" name="hospital{{l.hospital.hospital_id}}" value="{{l.hospital.hospital_name}}" disabled>
-								</div>
-								<div class="col-md-3">
-									<select class="form-control" name="hosp_depart{{l.hospital.hospital_id}}">
-										<option value=''>Select Departments</option>
-										<option *ngFor="let dep of l.departments" value="{{dep.department_id}}">{{dep.department_name}}</option>
-									</select>
-								</div>
-								<div class="col-md-2">
-									<input class="form-control" name="from_time{{l.hospital.hospital_id}}" placeholder="09:00">
-								</div>
-								<div class="col-md-2">
-									<input class="form-control" name="to_time{{l.hospital.hospital_id}}" placeholder="17:30">
-								</div>
-								<div class="col-md-1" style="text-align:center;">
-									  <input type="checkbox" name="avail{{l.hospital.hospital_id}}">
-								</div>
-								<div class="col-md-1 offset-md-1">
-									<button class="btn btn-sm btn-danger" (click)="sendValues(l.hospital.hospital_id)">Ok</button>
-								</div>
-							</div>
+							<app-update-department-child [frmdata]="l"></app-update-department-child>
 						</td>
 					</tr>
 				</tbody>
